@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notebook Blog</title>
+  <style>
+    body {
+      display: flex;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;      
+    }
+    .tabs {
+      width: 100px;
+      background: #fff;
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .tab {
+      padding: 1rem;
+      background: #5F9EA0;
+      border-left: 5px solid transparent;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #tab1 {
+        background: #6495ED;
+    }
+    .tab:hover, .tab.active {
+      background: #fff;
+      border-left: 5px solid #007acc;
+    }
+    .content {
+      flex-grow: 1;
+      padding: 2rem;
+    }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('overview')">Bet Stats</div>
+    <div class="tab" onclick="showTab('tech')"></div>
+    <div class="tab" onclick="showTab('usecases')"></div>
+    <div class="tab" onclick="showTab('lessons')"></div>
+    <div class="tab" onclick="showTab('challenges')"></div>
+    <div class="tab" onclick="showTab('visuals')"></div>
+    <div class="tab" onclick="showTab('future')"></div>
+    <div class="tab" onclick="showTab('reflection')"></div>
+  </div>
+
+  <div class="content">
+    <section id="overview" class="section active">
+      <h1>BetStats</h1>
+
+      <h2>Building Game Insights: Integrating Python Analytics with My Web Projects</h2>
+      <p>One of the biggest obstacles I faced while working on my projects was integrating Python tools into websites I had already built. 
+        For Bet Stats, my goal was to generate analytical insights and visualizations about player performance and game trends. I knew Python
+         (with libraries like Pandas, NumPy, and Matplotlib) would be ideal for processing and graphing the data, but I quickly realized that 
+         Python would need to be hosted separately from my main PHP-based website. Setting up the Python server was my first technical challenge. 
+         After configuring both environments locally, I figured out how to send a request from my main server (HTML, CSS, JavaScript, and PHP) to 
+         the Python server, which generated a graph and sent it back as an image. While this solution technically worked, I noticed the images 
+         did not render as quickly as expected. This was likely because of the overhead and delay caused by multiple cross-server communications. As 
+         I reassessed my priorities, I decided it would be more efficient for now to have the Python server render the graphs directly into an HTML 
+         page instead of sending graph images back to the PHP server. This simplified the process and helped me focus on what mattered most at this 
+         stage: building, analyzing, and displaying the data effectively.</p>
+
+        <h3>Key Takeaways and Skills Gained:</h3>
+        <ul>
+            <li>Server Management: Set up and managed two servers (PHP and Python) locally and remotely.</li>
+            <li>Cross-Server Communication: Designed and tested APIs to send requests between separate servers.</li>
+            <li>Data Handling: Worked with data extraction, cleaning, and transformation using Python (Pandas, NumPy).</li>
+            <li>Visualization: Used Matplotlib to generate graphs dynamically based on uploaded CSV data.</li>
+            <li>Problem-Solving: Made tradeoffs between technical complexity and project goals (e.g., simplifying architecture to prioritize data analysis).</li>
+        </ul>
+    
+
+    <h3>Refocusing on Data Analytics</h3>
+    <p>As I transition more heavily into data analytics, I want to shift focus from full-stack project building to working deeply with data itself.
+        Through my full-stack projects, I’ve already built a strong understanding of database design, querying, and real-world integration.
+        <br><br>Now, I want to strengthen my skills in areas like:</p>
+        <ul>
+            <li>Asking better analytical questions</li>
+            <li>Finding meaningful and actionable insights</li>
+            <li>Using Python to automate and present findings clearly</li>
+        </ul>
+
+        <p>My next project will be focused on complex querying and deeper analysis through a project on my ADHD productivity tracking website.
+            <br>This will push me to become more comfortable with Python and more confident approaching projects like a professional data analyst.</p>
+
+        <h3>Long Term Goals</h3>
+        <p>Eventually, I want to:</p>
+        <ul>
+            <li>Work with real-world datasets to build case studies</li>
+            <li>Develop web applications that automate graph generation and data exploration for users</li>
+            <li>Create a portfolio that clearly shows my ability to analyze, visualize, and explain data insights</li>
+            <li>Keep sharpening my web development skills, so that I can package and present data in a user-friendly way</li>
+        </ul>
+        <p>I believe combining technical skills (Python, SQL, web technologies) with strong analytical thinking will help me become 
+            a more versatile and impactful data professional.</p>
+
+            <h3>Final Thoughts</h3>
+            <p>This project taught me that while building a perfect technical system is exciting, clarity of purpose matters even more.
+                Choosing the right tools, simplifying architecture when needed, and focusing on the main goals (clear, meaningful insights) 
+                is what will drive my growth as a data analyst.</p>
+    </section>
+
+
+    <section id="tech" class="section">
+      <h2>2. Technologies Used</h2>
+      <ul>
+        <li>Language #1</li>
+        <li>Framework / Library #2</li>
+        <li>Other tools</li>
+      </ul>
+    </section>
+
+    <section id="usecases" class="section">
+      <h2>3. Use Cases</h2>
+      <p><em>Describe what real-world problems it solves and who would use it.</em></p>
+    </section>
+
+    <section id="lessons" class="section">
+      <h2>4. Highlights and Lessons Learned</h2>
+      <ul>
+        <li>Feature or moment you're proud of</li>
+        <li>New skill or tool you learned while building this</li>
+      </ul>
+    </section>
+
+    <section id="challenges" class="section">
+      <h2>5. Challenges and Solutions</h2>
+      <p><strong>Challenge:</strong> Short description</p>
+      <p><strong>Solution:</strong> How you solved or approached it</p>
+    </section>
+
+    <section id="visuals" class="section">
+      <h2>6. Visuals</h2>
+      <p><em>Insert Screenshot, GIF, or a link to a demo if possible.</em></p>
+      <p>
+        Example:<br>
+        <img src="link-to-your-screenshot.png" alt="Project Screenshot" style="max-width:100%; height:auto;">
+      </p>
+      <p>
+        or <a href="link-to-live-site" target="_blank">Live Demo</a>
+      </p>
+    </section>
+
+    <section id="future" class="section">
+      <h2>7. Future Improvements</h2>
+      <p><em>Describe anything you'd like to add, fix, or explore next.</em></p>
+    </section>
+
+    <section id="reflection" class="section">
+      <h2>8. Reflection</h2>
+      <p><em>What you learned about yourself or development through this project. How it moves you closer to your goals.</em></p>
+    </section>
+  </div>
+
+  <script>
+    function showTab(id) {
+      const tabs = document.querySelectorAll('.tab');
+      const sections = document.querySelectorAll('.section');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      sections.forEach(section => section.classList.remove('active'));
+      document.querySelector('.tab[onclick="showTab(\'' + id + '\')"]').classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+
+    <svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'>
+    <rect width='40' height='40' fill='#fff'></rect>
+    <rect x='50%' width='1' height='100%' fill='rgb(203 213 225)'></rect>
+    <rect y='50%' width='100%' height='1' fill='rgb(203 213 225)'></rect>
+    </svg>
+
+  </script>
+</body>
+</html>
