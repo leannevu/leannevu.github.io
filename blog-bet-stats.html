@@ -6,31 +6,96 @@
   <title>Notebook Blog</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0px 20px 20px 20px;
+      background-color: #C4A484 ;
+      color: black;
+    }
+
+    header {
+      background-color:#f8f9fa;
+      text-align: center;
       display: flex;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;      
-    }
-    .content {
-      flex-grow: 1;
-      padding: 2rem;
-    }
-    h1, h2 {
+      gap: 5rem;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0px 50px 0px;
+      max-width: 960px;
+      position: relative;
       color: #333;
+    }
+
+    /* credits https://cocreate.localmotors.com/blog/post/zig-zag-borders-in-css/1205/ */
+    header:after {
+        background: linear-gradient(-45deg, #C4A484 16px, transparent 0), linear-gradient(45deg, #C4A484 16px, transparent 0);
+        background-position: left-bottom;
+        background-repeat: repeat-x;
+        background-size: 32px 32px;
+        content: " ";
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 32px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
     }
     .back-link {
       display: block;
-      margin: 1rem auto;
+      margin: 2rem auto;
       text-align: center;
-      color: #4a90e2;
+      color: #f8f9fa;
       text-decoration: none;
-  } 
+      font-weight: bold;
+    }
+    h1, h2, h3 {
+      color: #333;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 5px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    p {
+      line-height: 1.6;
+    }
+    
+    .sticky-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      padding-top: 1rem;
+    }
 
+    .note {
+      background: #fff58f;
+      width: 200px;
+      min-height: 150px;
+      padding: 1rem;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+      transform: rotate(-1.5deg);
+      transition: transform 0.2s ease;
+      border: 1px solid #fff58f;
+      font-weight: 500;
+      color: black;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
-  <div class="content">
-    <section id="overview" class="section active">
+  <div class="container">
+    <header>
       <h1>BetStats</h1>
+    </header>
+    <section id="overview" class="section active">
 
       <h2>Building Game Insights: Integrating Python Analytics with My Web Projects</h2>
       <p>One of the biggest obstacles I faced while working on my projects was integrating Python tools into websites I had already built. 
@@ -44,20 +109,20 @@
          page instead of sending graph images back to the PHP server. This simplified the process and helped me focus on what mattered most at this 
          stage: building, analyzing, and displaying the data effectively.</p>
 
-        <h3>Key Takeaways and Skills Gained:</h3>
-        <ul>
-            <li>Server Management: Set up and managed two servers (PHP and Python) locally and remotely.</li>
-            <li>Cross-Server Communication: Designed and tested APIs to send requests between separate servers.</li>
-            <li>Data Handling: Worked with data extraction, cleaning, and transformation using Python (Pandas, NumPy).</li>
-            <li>Visualization: Used Matplotlib to generate graphs dynamically based on uploaded CSV data.</li>
-            <li>Problem-Solving: Made tradeoffs between technical complexity and project goals (e.g., simplifying architecture to prioritize data analysis).</li>
-        </ul>
-    
+        <h3>Key Takeaways and Skills Gained: <br>Cross-Server Management, Data Handling, Visualization, Problem-Solving</h3>
+         <section class="sticky-notes">
+          <div class="note">Set up and managed two servers (PHP and Python) locally and remotely</div>
+          <div class="note">Designed and tested APIs to send requests between separate servers</div>
+          <div class="note">Worked with data extraction, cleaning, and transformation using Python (Pandas, NumPy)</div>
+          <div class="note">Used Matplotlib to generate graphs dynamically based on uploaded CSV data</div>
+          <div class="note">Made tradeoffs between technical complexity and project goals (e.g., simplifying architecture to prioritize data analysis).</div>
+
+        </section>
 
     <h3>Refocusing on Data Analytics</h3>
     <p>As I transition more heavily into data analytics, I want to shift focus from full-stack project building to working deeply with data itself.
-        Through my full-stack projects, I’ve already built a strong understanding of database design, querying, and real-world integration.
-        <br><br>Now, I want to strengthen my skills in areas like:</p>
+        Through my full-stack projects, I’ve already built a strong understanding of database design, querying, and real-world integration.</p>
+        <p>Now, I want to strengthen my skills in areas like:</p>
         <ul>
             <li>Asking better analytical questions</li>
             <li>Finding meaningful and actionable insights</li>
@@ -65,7 +130,7 @@
         </ul>
 
         <p>My next project will be focused on complex querying and deeper analysis through a project on my ADHD productivity tracking website.
-            <br>This will push me to become more comfortable with Python and more confident approaching projects like a professional data analyst.</p>
+            This will push me to become more comfortable with Python and more confident approaching projects like a professional data analyst.</p>
 
         <h3>Long Term Goals</h3>
         <p>Eventually, I want to:</p>
@@ -78,12 +143,12 @@
         <p>I believe combining technical skills (Python, SQL, web technologies) with strong analytical thinking will help me become 
             a more versatile and impactful data professional.</p>
 
-            <h3>Final Thoughts</h3>
-            <p>This project taught me that while building a perfect technical system is exciting, clarity of purpose matters even more.
-                Choosing the right tools, simplifying architecture when needed, and focusing on the main goals (clear, meaningful insights) 
-                is what will drive my growth as a data analyst.</p>
+        <h3>Final Thoughts</h3>
+        <p>This project taught me that while building a perfect technical system is exciting, clarity of purpose matters even more.
+            Choosing the right tools, simplifying architecture when needed, and focusing on the main goals (clear, meaningful insights) 
+            is what will drive my growth as a data analyst.</p>
     </section>
+    <a class="back-link" href="./blog.html">← Back to Main Blog Page</a>
   </div>
-  <a class="back-link" href="./blog.html">← Back to Main Blog Page</a>
 </body>
 </html>

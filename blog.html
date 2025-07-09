@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leanne's Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #4B371C;
+      color: #f8f9fa;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color:#f8f9fa;
+      text-align: center;
+      display: flex;
+      gap: 5rem;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0px 50px 0px;
+      position: relative;
+      color: #333;
+    }
+
+    /* credits https://cocreate.localmotors.com/blog/post/zig-zag-borders-in-css/1205/ */
+    header:after {
+        background: linear-gradient(-45deg, #4B371C 16px, transparent 0), linear-gradient(45deg, #4B371C 16px, transparent 0);
+        background-position: left-bottom;
+        background-repeat: repeat-x;
+        background-size: 32px 32px;
+        content: " ";
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 32px;
+    }
+
+    #profile-pic {
+      display: flex;
+      width: 200px;
+      height: 200px;
+    }
+
+    #img-pic {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    #header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #title h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    #about {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      text-align: left;
+    }
+
+    .content-layout {
+      max-width: 960px;
+      margin: 3rem auto;
+      padding: 1rem;
+    }
+
+    .content-guide h2 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 5px;
+    }
+
+    .sticky-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      padding-top: 1rem;
+    }
+
+    .note {
+      background: #fff58f;
+      max-width: 200px;
+      min-height: 180px;
+      padding: 1rem;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+      transform: rotate(-1.5deg);
+      transition: transform 0.2s ease;
+      border: 1px solid #fff58f;
+      font-weight: 500;
+      color: black;
+      line-height: 1.6;
+    }
+
+    .note:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .notebook-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      padding-top: 1rem;
+    }
+
+    .notebook-link {
+      width: 200px;
+      height: 250px;
+      background-color: #cf780d;
+      color: white;
+      padding: 20px;
+      border-radius: 6px;
+      border-right: 2px solid rgb(207, 203, 203);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .notebook-link:hover {
+      transform: scale(1.05);
+    }
+
+    .notebook-link h3 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .notebook-link p {
+      font-size: 0.85rem;
+      font-weight: 300;
+    }
+
+    .notebook-link .line {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #ccc;
+      margin-top: 15px;
+    }
+
+    .timeline {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 1rem 2rem;
+    }
+
+    .timeline ul {
+      list-style: none;
+      padding-left: 0;
+      position: relative;
+    }
+
+    .timeline li {
+      padding: 1rem 0;
+      border-left: 3px solid #f8f9fa;
+      padding-left: 1.5rem;
+      margin-left: 1rem;
+      position: relative;
+    }
+
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 1.1rem;
+      background: #f8f9fa;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+    }
+
+    .back-link {
+      display: block;
+      margin: 2rem auto;
+      text-align: center;
+      color: #f8f9fa;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #f8f9fa;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="profile-pic">
+        <img id="img-pic" src="leanne-vu-modified.png" alt="Leanne Vu profile picture" />
+    </div>
+    <div id="header">
+        <div id="title">
+            <h2>Welcome to my Blog</h2>
+            <h1>Leanne Vu</h1>
+        </div>
+        <div id="about">
+            <p>I share my current goals, track my journey from graduation to data science, and link to my past projects. I hope this helps you get to know me better — both professionally and personally.</p>
+        </div>
+    </div>
+  </header>
+
+  <div class="content-layout">
+    <div class="content-guide">
+      <h2>Current Goals</h2>
+    </div>
+    <section class="sticky-notes">
+      <div class="note">Work with real-world datasets to build case studies</div>
+      <div class="note">Develop web applications that automate graph generation and data exploration for users</div>
+      <div class="note">Create a portfolio that clearly shows my ability to analyze, visualize, and explain data insights</div>
+      <div class="note">Keep sharpening my web development skills, so that I can package and present data in a user-friendly way</div>
+    </section>
+  </div>
+
+  <div class="content-layout">
+    <div class="content-guide">
+      <h2>Click on notebook!</h2>
+    </div>
+    <div class="notebook-container">
+      <a href="./blog-bet-stats.html" class="notebook-link">
+        <h3>Bet Stats</h3>
+        <p>Integrating Python Analytics with My Web Projects</p>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </a>
+      <a href="./blog-analysis-productivity.html" class="notebook-link">
+        <h3>Interactive EDA Dashboard</h3>
+        <p>Social Media, Sleep, and Productivity</p>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="content-layout">
+    <div class="content-guide">
+      <h2>My Timeline</h2>
+      <h4>From Development to Data Science</h4>
+    </div>
+    <section class="timeline">
+      <ul>
+        <li><strong>August 2023:</strong> Graduated from UW Bothell – CSSE</li>
+        <li><strong>December 2023:</strong> Learned HTML, CSS, PHP, and Javascript</li>
+        <li><strong>Spring 2024:</strong> Host full stack projects with SQL, HTML, CSS, PHP, and Javascript</li>
+        <li><strong>Fall 2024:</strong> Learned Python, Pandas, MatplotLib, Flask, OpenPyXL</li>
+        <li><strong>Winter 2025:</strong> Add graph insights/file upload to projects with Flask, Pandas, etc.</li>
+        <li><strong>Now:</strong> Exploring data & product management roles</li>
+        <li><strong>Summer 2025:</strong> Begin Master's in Analytics at Georgia Tech</li>
+      </ul>
+    </section>
+  </div>
+
+  <a class="back-link" href="https://leannevu.github.io/">← Back to Portfolio</a>
+
+  <footer>
+    © 2025 Leanne Vu. All rights reserved.
+  </footer>
+</body>
+</html>

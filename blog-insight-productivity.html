@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media vs Productivity – EDA Journal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0px 20px 20px 20px;
+      background-color: #f8f9fa;
+      color: black;
+    }
+    header {
+      background-color: #C4A484;
+      text-align: center;
+      padding: 20px 0px 50px 0px;
+      position: relative;
+      color: #333;
+    }
+
+    header::after {
+      background: linear-gradient(-45deg, #f8f9fa 16px, transparent 0), linear-gradient(45deg, #f8f9fa 16px, transparent 0);
+      background-position: left bottom;
+      background-repeat: repeat-x;
+      background-size: 32px 32px;
+      content: " ";
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      height: 32px;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    h2 {
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 5px;
+      margin-top: 2rem;
+    }
+    .section-block {
+      margin-bottom: 2rem;
+    }
+    .back-link {
+      display: block;
+      margin: 2rem auto;
+      text-align: center;
+      color: #4B371C;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Social Media vs Productivity – Full EDA Journal</h1>
+    </header>
+
+    <h2>Initial Insights</h2>
+    <div class="section-block">
+      There wasn’t much correlation between social media use and productivity in this dataset. However, there was a strong correlation between productivity and job satisfaction. Beyond that, I wasn’t able to identify any strong indicators that directly impacted either productivity or job satisfaction.
+    </div>
+
+    <div class="section-block">
+      I focused on identifying high-level relationships before diving into granular trends. Job satisfaction stood out as a key variable worth highlighting.
+    </div>
+
+    <div class="section-block">
+      It was surprising to find that the correlation values between variables such as weekly offline hours, screen time before sleep, daily social media time, and sleep hours were all close to zero—hovering around .01 or -.01. These results were much lower than those reported in existing literature, which led me to question whether my dataset had unique properties or whether the relationships were more complex than linear correlation could capture.
+    </div>
+
+    <div class="section-block">
+      I used correlation as an initial diagnostic tool, then reevaluated my assumptions after seeing surprising results and compared them against findings from existing research.
+    </div>
+
+    <h2>Section 2 & 3 – Subgroup Aggregation</h2>
+    <div class="section-block">
+      When analyzing specific populations by gender and age range, I aggregated the mean and median values of daily social media time, actual productivity score, and screen time before sleep. No specific group stood out with significantly higher or lower values in a way that suggested a noteworthy trend.
+    </div>
+    <div class="section-block">
+      I explored subgroup aggregation to detect patterns that might be masked in the overall dataset but found no compelling differentiation across groups.
+    </div>
+
+    <h2>Section 4 – Distribution Analysis</h2>
+    <div class="section-block">
+      Many studies suggest that screen time before sleep negatively affects sleep quality and mental health, potentially influencing productivity. Given the lack of correlation in my dataset, I explored the distribution of screen time before sleep in more detail, asking whether it was skewed or flat and how this might vary across age groups.
+    </div>
+    <div class="section-block">
+      I shifted from correlation to distribution analysis to uncover potential hidden patterns that might not appear in basic metrics.
+    </div>
+
+    <h2>Section 5 – Age-Based Analysis</h2>
+    <div class="section-block">
+      I examined whether specific age groups tend to engage in more screen time before sleep and whether this could be visually linked to productivity. A boxplot highlighted extreme values and outliers within age groups, and a heatmap revealed how frequently different age groups fell into certain screen time ranges.
+    </div>
+    <div class="section-block">
+      I applied visual analysis techniques to reveal underlying structure, outliers, and age-related trends not visible in summary statistics.
+    </div>
+
+    <h2>Section 6 & 7 – Cross-Demographic Insights</h2>
+    <div class="section-block">
+      Using the same analytical approach, I cross-tabulated age range, gender, and productivity levels to better understand group-specific behaviors. This method provided a more granular view of demographic patterns. The heatmap helped compare these findings to earlier screen time analysis and ultimately showed that no clear connection existed between screen time before sleep and productivity across groups.
+    </div>
+    <div class="section-block">
+      I progressively layered variables to identify intersections of behavior and demographics, checking for consistency in conclusions across different perspectives.
+    </div>
+
+    <h2>Section 8 – Normalization</h2>
+    <div class="section-block">
+      I revisited the heatmap involving age range, gender, and productivity, this time normalizing the data by calculating percentages. This approach helped correct for skew caused by uneven demographic representation and ensured a more accurate comparison between groups.
+    </div>
+    <div class="section-block">
+      I controlled for demographic imbalance to avoid misleading interpretations and support fair comparisons.
+    </div>
+
+    <h2>Section 9, 10, 11 – Statistical Validation</h2>
+    <div class="section-block">
+      To supplement the visual heatmaps, I analyzed the median productivity scores for each gender within each age range. This provided a more direct statistical view and either supported or challenged the visual patterns observed earlier.
+    </div>
+    <div class="section-block">
+      I used summary statistics to triangulate findings and strengthen the reliability of the visual data analysis.
+    </div>
+
+    <h2>Section 12 – Integrity Check</h2>
+    <div class="section-block">
+      As a final step, I examined the size of each demographic group to validate the credibility of earlier findings. Ensuring that insights weren’t based on disproportionately small groups helped build confidence in the overall analysis.
+    </div>
+    <div class="section-block">
+      I performed integrity checks on group sizes to ensure conclusions were supported by a solid data foundation.
+    </div>
+
+  </div>
+  <a class="back-link" href="./blog.html">&larr; Back to Full Project</a>
+</body>
+</html>
