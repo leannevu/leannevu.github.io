@@ -104,7 +104,7 @@ body{
   left: 10px;           /* tweak this until it sits perfectly */
   width: 50px;          /* smaller spiral strip */
 
-  background: url("./images/spirals.png") center top / 300px auto repeat-y;
+  background: url("./spirals.png") center top / 300px auto repeat-y;
   opacity: 0.9;
   pointer-events: none;
   z-index: 5;           /* above both backgrounds */
@@ -194,4 +194,5 @@ body{
   .doc-post{
     padding: 36px 22px;
   }
+
 }
