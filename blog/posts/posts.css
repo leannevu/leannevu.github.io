@@ -165,8 +165,13 @@ a:hover {
 
 /* ===== Sidebar cards ===== */
 
-.blog-rail {
-    position: sticky;
+.blog-rail{
+  position: sticky;
+  top: 0px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .rail-card {
