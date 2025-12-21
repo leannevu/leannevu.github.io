@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — Leanne Vu</title>
+  <link rel="stylesheet" href="blog.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img class="avatar" src="leanne-vu.jpg" alt="Leanne Vu" />
+        <div>
+          <div class="brand-name">Leanne Vu</div>
+          <div class="brand-tagline">
+            Writing about data, product, and building practical analytics.
+          </div>
+        </div>
+      </a>
+
+      <nav class="top-nav">
+        <a href="/portfolio">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page intro -->
+  <main class="container">
+    <section class="blog-intro">
+      <h1>Blog</h1>
+      <p>
+        Long-form writing on data analysis, machine learning, and product thinking.
+        Each post walks through reasoning, trade-offs, and implementation.
+      </p>
+    </section>
+
+    <!-- Blog list -->
+    <section class="blog-list">
+
+      <!-- Post -->
+      <article class="blog-card">
+        <a href="./test.html" class="card-link">
+          <h2>Do Reddit Sentiments Reflect Economic Reality?</h2>
+          <p class="excerpt">
+            Blending statistical inference and predictive modeling to evaluate whether
+            public Reddit sentiment reflects real-world economic trends.
+          </p>
+          <div class="meta">
+            <span>Dec 26, 2025</span>
+            <span class="dot">•</span>
+            <span>Economic Sentiment · NLP</span>
+          </div>
+        </a>
+      </article>
+
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      © <span id="year"></span> Leanne Vu
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
