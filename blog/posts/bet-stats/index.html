@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Leanne Vu — Blog</title>
+    <!-- Optional: keep Poppins for nav/labels; reading text will be serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../posts.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img class="avatar" src="\assets/leanne-vu.jpg" alt="Leanne Vu" />
+        <div>
+          <div class="brand-name">Leanne Vu</div>
+          <div class="brand-tagline">
+            Writing about data, product, and building practical analytics.
+          </div>
+        </div>
+      </a>
+
+      <nav class="top-nav">
+        <a href="../../../index.html">Portfolio</a>
+        <a href="../../index.html">Blog</a>
+      </nav>
+    </div>
+  </header>
+  <main id="content" class="wrap">
+    <div class="blog-layout">
+
+        <div class="doc-wrap">
+          <article class="doc-post">
+           <div class="c21 doc-content">
+    <div>
+        <p class="c10"><span class="c2 c3"></span></p>
+    </div>
+    <p class="c20 title" id="h.fxylkjlls42"><span class="c2 c19">From Bet Stats to Insight</span></p>
+    <p class="c7 subtitle" id="h.13zljn7o50xl"><span class="c2 c6 subhead">Building a lightweight data pipeline to support
+            exploratory analysis and visualization</span></p>
+    <p class="c7 subtitle" id="h.ngp8koitc7a"><span class="c2 c6 byline">Leanne Vu<br>February 23, 2025</span></p>
+    <p class="c10 c18"><span class="c5 c1"></span></p>
+    <h1 class="c17" id="h.1ivn9olyl8ak"><span>Introduction - T</span><span class="c13">he </span><span
+            class="c13">Proble</span><span class="c9 c4 c3">m Statement </span></h1>
+    <p class="c8"><span>Prior to this project, my experience was almost entirely centered on building full-stack
+            websites&mdash;designing interfaces, managing databases, and implementing backend logic using tools like
+            PHP, HTML, CSS, and JavaScript. While this gave me a strong foundation in building end-to-end applications,
+            I wanted to </span><span class="c4">widen my skill set and move closer to the data side of
+            problem-solving</span><span class="c2 c3">.</span></p>
+    <p class="c8"><span>This project was a deliberate step in that direction. Through </span><span class="c12">Bet
+            Stats</span><span>, my goal was not just to build another web application, but to integrate Python-based
+            analytics into my existing projects in order to generate meaningful insights and visualizations around
+            player performance and game trends. It marked an intentional shift from focusing solely on application
+            structure to focusing on </span><span class="c4">how data is processed, analyzed, and
+            communicated</span><span class="c2 c3">.</span></p>
+    <p class="c8 c14"><span class="c2 c3"></span></p>
+    <h1 class="c17" id="h.vgkhfrewdxk0"><span>1</span><span>&nbsp;Exploratory Analysis</span></h1>
+    <p class="c8"><span class="c2 c3">Although this project was not designed around formal statistical inference,
+            exploratory data analysis played a key role in shaping the analytical layer of the application. Using Python
+            and Pandas, I explored player-level and game-level datasets to understand distributions, variability, and
+            emerging patterns in performance metrics.</span></p>
+    <p class="c11"><span
+            style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 314.00px; height: 391.00px;"><img
+                alt="" src="images/image2.png"
+                style="width: 314.00px; height: 391.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                title=""></span></p>
+    <p class="c15"><span class="c12 c4 c0">Figure 1&mdash;</span><span class="c0 c4">&nbsp;</span><span
+            class="c0">System workflow used to facilitate exploratory data analysis across a web-based and Python-hosted
+            environment</span><span class="c0">.</span></p>
+    <p class="c8"><span>This exploratory process helped me determine which statistics were meaningful to visualize and
+            which were too noisy or inconsistent for user-facing insights. In this context, EDA functioned as a
+            practical decision-making tool&mdash;bridging raw data and visualization by clarifying what information
+            would actually be useful to users.</span></p>
+    <p class="c15"><span class="c0">&nbsp;</span></p>
+    <h1 class="c16" id="h.pmbj0cqwfcca"><span class="c9 c4 c1">2 Methodology</span></h1>
+    <p class="c8"><span class="c2 c3">To integrate Python analytics into a website I had already built, I initially set
+            up a separate Python server alongside my PHP-based web server. The architecture involved sending requests
+            from the main server to the Python server, which processed the data, generated graphs using Matplotlib, and
+            returned the images to be rendered on the site.</span></p>
+    <p class="c8"><span class="c2 c3">While this approach worked, it introduced performance delays and additional
+            complexity due to cross-server communication. As I evaluated the trade-offs, I decided to simplify the
+            system by allowing the Python server to render visualizations directly within an HTML page.</span></p>
+    <p class="c8"><span class="c2 c3">This decision reduced overhead, improved performance, and allowed me to focus more
+            on data handling, transformation, and visualization rather than maintaining an overly complex
+            infrastructure.</span></p>
+    <p class="c8 c14"><span class="c2 c3"></span></p>
+    <p class="c11"><span
+            style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 213.00px; height: 597.00px;"><img
+                alt="" src="images/image3.png"
+                style="width: 213.00px; height: 597.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                title=""></span></p>
+    <p class="c15"><span class="c12 c4 c0">Figure 2&mdash;</span><span class="c4 c0">&nbsp;</span><span
+            class="c0 c2">The diagram illustrates how user-selected data is exported from Bet Stats, processed through
+            an automated Python-based exploratory data analysis pipeline, and transformed into dynamic visualizations
+            and summaries that support interpretation and insight discovery.</span></p>
+    <p class="c15 c14"><span class="c2 c0"></span></p>
+    <h1 class="c16" id="h.1ob5komhk1mq"><span class="c1">3 Results</span></h1>
+    <p class="c8"><span class="c2 c3">The final implementation successfully generated dynamic visualizations based on
+            uploaded CSV data, allowing player and game statistics to be analyzed and displayed through a Python-driven
+            workflow.</span></p>
+    <p class="c8"><span>By simplifying the architecture, the application became more responsive and easier to maintain.
+            More importantly, it enabled me to spend more time working with the data itself&mdash;cleaning,
+            transforming, and visualizing it&mdash;rather than managing server-to-server communication.</span></p>
+    <p class="c8 c14"><span class="c2 c3"></span></p>
+    <h1 class="c16" id="h.qh83kqi5yd6p"><span class="c1">4 Findings and Analysis</span></h1>
+    <p class="c8"><span class="c2 c3">This project reinforced the value of balancing engineering ambition with
+            analytical focus. From a technical standpoint, I gained experience managing multiple server environments,
+            designing APIs for cross-server communication, and making architectural trade-offs aligned with project
+            goals.</span></p>
+    <p class="c8"><span>From an analytical perspective, the project helped shift my mindset. Rather than building for
+            the sake of complexity, I began prioritizing clarity, interpretability, and usefulness of insights. EDA
+            informed what was worth visualizing, while Python provided the tools to automate and scale that analysis.
+            This marked a meaningful transition from full-stack implementation toward </span><span
+            class="c4">data-driven reasoning</span><span class="c2 c3">.</span></p>
+    <h1 class="c16" id="h.97w2mvwcjaff"><span class="c1">5 Conclusion</span></h1>
+    <p class="c8"><span class="c2 c3">This project represented an intentional step away from building full-stack
+            applications alone and toward developing deeper data analytics skills. It taught me that effective data work
+            is not about building the most complex system, but about choosing the right tools, simplifying when
+            necessary, and focusing on insights that matter.</span></p>
+    <p class="c8"><span class="c2 c3">As I continue to transition further into data analytics, I plan to deepen my
+            ability to ask stronger analytical questions, extract actionable insights, and automate analysis pipelines
+            using Python. This project laid the groundwork for that shift and clarified how I want to position my work
+            at the intersection of analytics, engineering, and user-centered design.</span></p>
+    <p class="c8 c14"><span class="c2 c3"></span></p>
+    <p class="c8 c14"><span class="c2 c3"></span></p>
+    <p class="c11"><span
+            style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 647.60px; height: 438.50px;"><img
+                alt="" src="images/image1.png"
+                style="width: 647.60px; height: 438.50px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                title=""></span></p>
+    <p class="c15"><span class="c4 c0 c12">Figure 3&mdash;</span><span class="c4 c0">&nbsp;</span><span
+            class="c0">Summarizes skills gained across server management, API design, data handling, visualization, and
+            architectural decision-making, highlighting the shift from full-stack development toward data-driven
+            analysis.</span></p>
+    <p class="c10"><span class="c2 c3"></span></p>
+    <div>
+        <p class="c14 c21"><span class="c2 c3"></span></p>
+    </div>
+</div>
+
+          </article>
+        </div>
+
+      <aside class="blog-rail" aria-label="Sidebar">
+        <div class="rail-card">
+          <div class="rail-title">On this page</div>
+          <nav class="rail-nav" id="toc">
+            <a href="#h.1ivn9olyl8ak">Introduction</a>
+            <a href="#h.vgkhfrewdxk0">EDA</a>
+            <a href="#h.pmbj0cqwfcca">Methodology</a>
+            <a href="#h.1ob5komhk1mq">Findings</a>
+            <a href="#h.97w2mvwcjaff">Conclusion</a>
+
+          </nav>
+        </div>
+
+      </aside>
+
+    <div class="post-footer">
+          <p class="backline">
+            <a class="back-link" href="../../index.html">← Back to Blog</a>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
