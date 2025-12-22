@@ -103,6 +103,7 @@ body{
   border-radius: var(--radius);
   background: var(--card-bg);
   transition: border 0.2s ease, transform 0.15s ease;
+  margin: 15px 0px 15px;
 }
 
 .blog-card:hover{
