@@ -27,7 +27,6 @@ body{
   margin-inline: auto;
 }
 
-/* ---------- Header ---------- */
 .site-header{
   border-bottom: 1px solid var(--border);
 }
@@ -74,7 +73,6 @@ body{
   color: var(--text);
 }
 
-/* ---------- Intro ---------- */
 .blog-intro{
   padding: 56px 0 28px;
 }
@@ -90,7 +88,6 @@ body{
   color: var(--muted);
 }
 
-/* ---------- Blog List ---------- */
 .blog-list{
   display: flex;
   flex-direction: column;
@@ -141,7 +138,6 @@ body{
   opacity: 0.7;
 }
 
-/* ---------- Footer ---------- */
 .site-footer{
   border-top: 1px solid var(--border);
   padding: 20px 0;
@@ -149,7 +145,6 @@ body{
   color: var(--muted);
 }
 
-/* ---------- Mobile ---------- */
 @media (max-width: 600px){
   .blog-intro h1{
     font-size: 40px;
