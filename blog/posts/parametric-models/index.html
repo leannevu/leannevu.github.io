@@ -1,0 +1,438 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Leanne Vu — Blog</title>
+    <!-- Optional: keep Poppins for nav/labels; reading text will be serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../posts.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="/">
+                <img class="avatar" src="\assets/leanne-vu.jpg" alt="Leanne Vu" />
+                <div>
+                    <div class="brand-name">Leanne Vu</div>
+                    <div class="brand-tagline">
+                        Writing about data, product, and building practical analytics.
+                    </div>
+                </div>
+            </a>
+
+            <nav class="top-nav">
+                <a href="../../../index.html">Portfolio</a>
+                <a href="../../index.html">Blog</a>
+            </nav>
+        </div>
+    </header>
+    <main id="content" class="wrap">
+        <div class="blog-layout">
+
+            <div class="doc-wrap">
+                <article class="doc-post">
+                    <div class="c21 doc-content">
+                        <div>
+                            <p class="c92 c33"><span class="c37 c15"></span></p>
+                        </div>
+                        <p class="c6 title" id="h.dcw4yvbmetsm"><span class="c15 c43">Understanding Predictive
+                                Performance Beyond Linear
+                                Models</span></p>
+                        <p class="c34 subtitle" id="h.b1q4m9o5dve"><span class="c15 c28 subhead">Bias&ndash;variance
+                                behavior of parametric and
+                                local smoothing regression techniques in simulated settings</span></p>
+                        <p class="c29 c38 subtitle" id="h.cdc0hjtbzhgf"><span class="c15 byline">Leanne Vu<br>August 3,
+                                2025</span></p>
+                        <p class="c29 subtitle" id="h.1xjs3kydrg0e"><span>October 26, 2025</span></p>
+                        <h1 class="c31" id="h.cefylqgkieet"><span class="c15">Introduction</span></h1>
+                        <p class="c42"><span class="c18 c3 c15">The foundation of data mining is selecting appropriate
+                                models and
+                                understanding their predictive performance.</span><span class="c3 c24">&nbsp;I&rsquo;ve
+                                explored
+                            </span><span class="c18 c3 c15">linear regression and its variants&mdash;first for
+                                classification, then for
+                                continuous prediction&mdash;focusing on how parametric models make assumptions about
+                                data structure to
+                                minimize prediction error.</span><span class="c3 c15 c18">&nbsp;Beyond parametric models
+                                are non parametric
+                                regression and local smoothing techniques, as an extension &nbsp;of statistical
+                                properties and computational
+                                behavior models. I compare a variety of non parametric models, KNN Regression, Smoothing
+                                Splines, Random
+                                Forest, and Boosting, in a manner of simulations. In contrast to parametric models using
+                                a fixed formula to
+                                base predictions from, these techniques can be generalized as partitioning data into
+                                segments (the different
+                                approaches are discussed in the report), with minimum to no assumption for a fixed
+                                formula. Empirical bias,
+                                variance, and mean squared error (MSE) are the measurements I compare to distinguish the
+                                performance of
+                                model practicality, using the Mexican hat function as the true function. Moreover, the
+                                experiment compares
+                                the performance of these models based on equidistant and non equidistant points in the
+                                interval -2pi and pi,
+                                which analyzes how the models perform in different scenarios of data sparsity (how data
+                                is spaced
+                                out).</span></p>
+                        <h1 class="c23" id="h.kytn3gs6p02m"><span>1 </span><span>Data Sources</span><span
+                                class="c15">&nbsp;</span></h1>
+                        <p class="c32"><span class="c3">I am using randomized data sets that have the underlying famous
+                                Mexican hat function
+                            </span><span class="c3 c8">f(x) = (1-x^2)exp(-0.5x^2)</span><span class="c2">&nbsp;with x
+                                values within the
+                                range -2pi and pi: </span></p>
+                        <ol class="c25 lst-kix_ruh72q78053z-0 start" start="1">
+                            <li class="c19 li-bullet-0"><span class="c2">101 Equidistant x points </span></li>
+                            <li class="c19 li-bullet-0"><span class="c3">101 non equidistant x points. The non
+                                    equidistant points are
+                                    intentionally computed with 70% of x points randomly generated near the value 0,
+                                    which is the center of
+                                    the domain. The remaining x points are generated across the full domain.</span></li>
+                        </ol>
+                        <p class="c5"><span class="c2"></span></p>
+                        <p class="c32"><span class="c3">The data sets are randomly generated as the true Mexican Hat
+                                function plus generated
+                                error, making it the training data used to fit KNN Regression, Spline Smoothing, Random
+                                Forest, and
+                                Boosting. The testing data is the true Mexican hat function (Figure 1), used to assess
+                                model performance.
+                            </span></p>
+                        <p class="c92 c42"><span class="c18 c3 c15"></span></p>
+                        <p class="c92 c44"><span class="c2"></span></p>
+                        <p class="c1"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 532.83px; height: 316.26px;"><img
+                                    alt="" src="images/image6.png"
+                                    style="width: 532.83px; height: 316.26px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c46"><span class="c3">Figure 1: &nbsp;The Mexican function &ldquo;is known to pose a
+                                variety of estimation
+                                challenges&rdquo;. If a simpler function is used, it is likely that all models would
+                                perform similarity,
+                                making it hard to note the bias and variance trade offs among the models. </span></p>
+                        <h1 class="c35" id="h.hchncyohvplw"><span>2 </span><span class="c15 c27">Methodology </span>
+                        </h1>
+                        <p class="c4"><span class="c3">There are two parts to this experiment, comparing </span><span
+                                class="c3 c24">KNN
+                                Regression, Smoothing Splines, Random Forest, and Boosting </span><span class="c2">with
+                                the first part using
+                                equidistant x points and the second part using non equidistant x points. For each part,
+                                the Monte Carlo
+                                algorithm is used to generate 1000 observations with added noise (along the underlying
+                                function) and fitting
+                                the three non parametric models. </span></p>
+                        <p class="c4"><span class="c3">Conducting the experiment with a true function is a matter of
+                                theory. Typically,
+                                calculating variance and bias is numerically impossible in cases where we don&rsquo;t
+                                have the true
+                                function. Because the experiment is conducted as a simulation, where randomized data
+                                sets and the true
+                                function are computed, the variance-bis trade off can be mathematically computed.
+                            </span><span class="c3 c8">MSE^2 = Bias^2 + Variance + Sigma^2</span><span
+                                class="c2">&nbsp;is the formula derived to
+                                compute measurements of bias, variance, and MSE. &nbsp;</span></p>
+                        <p class="c4"><span class="c2">Before generating data and fitting models in the experiment, it
+                                is necessary to tune
+                                parameters for the non-parametric models: KNN Regression, Random Forest, and Boosting.
+                                In parametric models,
+                                tuning pertains to the coefficients of a fixed linear formula. In the case of non
+                                parametric models,
+                                however, tuning prevails intensity in procedure, which leads to different
+                                interpretations for different
+                                factors between models. </span></p>
+                        <p class="c4"><span class="c2">The behavior of each model, tuning parameter model variables, and
+                                the effect to
+                                &ldquo;intensity in procedure&rdquo; is discussed below:</span></p>
+                        <h2 class="c0" id="h.wra5evus8bqs"><span class="c12">2.1 KNN Regression</span></h2>
+                        <p class="c4"><span class="c2">The KNN Regression model relies on a select number (K) of data
+                                points dependent on
+                                the value of the predictor variable, known as K-Nearest Neighbors. The predicted value
+                                is the average of K
+                                closest data points closest to the value. </span></p>
+                        <p class="c4"><span class="c2">Tuning K in KNN Regression compares the prediction error of the
+                                model across
+                                different Ks, to select the optimal number of neighbors (K) in the K-Nearest Neighbors
+                                algorithm. The
+                                greater K is, the more prone the model is to high bias due to the nature of
+                                smoothing.</span></p>
+                        <p class="c4"><span class="c3 c8">Cross validation</span><span class="c2">&nbsp;(see appendix A)
+                                is used to select
+                                the optimal K neighbors. </span></p>
+                        <h2 class="c0" id="h.4rjglcn1gf91"><span class="c12">2.2 Smoothing Splines</span></h2>
+                        <p class="c4"><span class="c2">The Spline Smoothing model fits a global function, but adds a
+                                penalty that
+                                discourages the roughness of curvature. The goal is to balance how well the function
+                                fits the data versus
+                                how smooth it remains. Instead of averaging local neighbors like KNN Regression,
+                                smoothing splines use basis
+                                functions to represent the entire curve across the domain, making it more stable and
+                                smooth, especially in
+                                sparse regions.</span></p>
+                        <p class="c4"><span class="c2">Tuning is performed using the smoothing parameter &lambda;, which
+                                controls the
+                                trade-off between fit and smoothness. A small &lambda; allows the spline to closely
+                                follow the data (low
+                                bias, high variance), while a large &lambda; produces a smoother, more generalized
+                                function (higher bias,
+                                lower variance). </span></p>
+                        <p class="c4"><span class="c2">Cross-validation is used to select the optimal &lambda;. </span>
+                        </p>
+                        <h2 class="c0" id="h.qtvfwb6obz0"><span class="c12">2.3 Random Forest</span></h2>
+                        <p class="c4"><span class="c3">Random forest is an </span><span class="c3 c8">ensemble
+                            </span><span class="c3">(see
+                                appendix A) method that builds multiple decision trees and combines their predictions to
+                                improve accuracy
+                                and reduce overfitting. Each tree is trained on a </span><span class="c3 c8">bootstrap
+                                sample</span><span class="c2">&nbsp;(see appendix A) of the data, and at each split,
+                                only a random subset of predictors is
+                                considered - which decorrelates the trees and improves performance. The final prediction
+                                is the average of
+                                all trees. </span></p>
+                        <p class="c4"><span class="c2">Tuning in Random Forest involves selecting parameters such
+                                as:</span></p>
+                        <ul class="c25 lst-kix_1z7x2r8ajkd7-0 start">
+                            <li class="c20 li-bullet-0"><span class="c2">Number of trees (ntrees): more trees stabilize
+                                    predictions</span>
+                            </li>
+                            <li class="c20 li-bullet-0"><span class="c2">Number of features considered at each split
+                                    (mtry = 1 for this
+                                    experiment): affects variability and tree diversity </span></li>
+                        </ul>
+                        <p class="c4"><span class="c3">Cross-validation or </span><span class="c3 c8">OOB </span><span
+                                class="c2">(see
+                                appendix A) error is used to evaluate performance across tuning values to select the
+                                optimal combination of
+                                tuning parameters.</span></p>
+                        <p class="c36 c92"><span class="c2"></span></p>
+                        <p class="c92 c36"><span class="c2"></span></p>
+                        <h2 class="c0" id="h.33mvhrdj27bh"><span class="c12">2.4 Boosting</span></h2>
+                        <p class="c4"><span class="c3 c8">Boosting</span><span class="c3">&nbsp;(see appendix
+                                A)</span><span class="c3 c8">&nbsp;</span><span class="c2">is another ensemble method
+                                that builds trees sequentially, where
+                                each new tree is trained to correct the errors of previous trees. Instead of voting like
+                                Random Forest,
+                                boosting adds weak learners together to form a strong final model. </span></p>
+                        <p class="c4"><span class="c2">Tuning in Boosting involves:</span></p>
+                        <ul class="c25 lst-kix_pd3l5wza54r-0 start">
+                            <li class="c20 li-bullet-0"><span class="c2">Number of trees (M): too many trees may
+                                    overfit</span></li>
+                            <li class="c20 li-bullet-0"><span class="c2">Learning rate (&lambda;): smaller values
+                                    improve stability but
+                                    require more trees.</span></li>
+                            <li class="c20 li-bullet-0"><span class="c2">Tree depth: Shallower trees reduce variance and
+                                    improve
+                                    generalization.</span></li>
+                        </ul>
+                        <p class="c4"><span class="c3">Cross validation is used to select the optimal &lambda;.</span>
+                        </p>
+                        <h1 class="c10" id="h.osf3bn10x9bk"><span>3 </span><span class="c15">Results </span></h1>
+                        <p class="c39"><span class="c3">For reference, I am including the results of the </span><span
+                                class="c3 c8 c24">Empirical bias, variance,</span><span class="c3 c24">&nbsp;and
+                            </span><span class="c3 c24 c8">mean squared error (MSE)</span><span class="c3 c24">&nbsp;for
+                                the predictive performance
+                                of the models to the true mexican hat function (see appendix &nbsp;A). </span></p>
+                        <p class="c40"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 588.00px; height: 349.33px;"><img
+                                    alt="" src="images/image8.png"
+                                    style="width: 588.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c17 c30"><span class="c2">Figure 2: Mean of Estimators for KNN, Smoothing Spline,
+                                Random Forest, and
+                                Boosting.</span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c26"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 588.00px; height: 349.33px;"><img
+                                    alt="" src="images/image5.png"
+                                    style="width: 588.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c17 c30"><span class="c2">Figure 3: Empirical Bias for KNN, Smoothing Spline, Random
+                                Forest, and
+                                Boosting.</span></p>
+                        <p class="c17 c92"><span class="c2"></span></p>
+                        <p class="c41"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 588.00px; height: 349.33px;"><img
+                                    alt="" src="images/image3.png"
+                                    style="width: 588.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c17 c30"><span class="c2">Figure 4: Empirical Variance for KNN, Smoothing Spline,
+                                Random Forest, and
+                                Boosting.</span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c26"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 588.00px; height: 349.33px;"><img
+                                    alt="" src="images/image2.png"
+                                    style="width: 588.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c17 c30"><span class="c2">Figure 5: Empirical MSE for KNN, Smoothing Spline, Random
+                                Forest, and
+                                Boosting.</span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c14"><span class="c2"></span></p>
+                        <p class="c16"><span class="c2"></span></p>
+                        <p class="c26"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 588.00px; height: 349.33px;"><img
+                                    alt="" src="images/image9.png"
+                                    style="width: 588.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c17"><span class="c3">Figure 6: </span><span class="c2">Mean of Estimators for for
+                                KNN, Smoothing Spline,
+                                Random Forest, and Boosting.</span></p>
+                        <p class="c17 c92"><span class="c2"></span></p>
+                        <p class="c26"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 588.00px; height: 349.33px;"><img
+                                    alt="" src="images/image7.png"
+                                    style="width: 588.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c17"><span class="c3">Figure 7:</span><span class="c2">&nbsp;Empirical Bias for KNN,
+                                Smoothing Spline,
+                                Random Forest, and Boosting.</span></p>
+                        <p class="c17 c92"><span class="c2"></span></p>
+                        <p class="c17 c92"><span class="c2"></span></p>
+                        <p class="c26"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 588.00px; height: 349.33px;"><img
+                                    alt="" src="images/image4.png"
+                                    style="width: 588.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c17"><span class="c3">Figure 8: </span><span class="c2">Empirical Variance for for
+                                KNN, Smoothing Spline,
+                                Random Forest, and Boosting.</span></p>
+                        <p class="c17 c92"><span class="c2"></span></p>
+                        <p class="c17 c92"><span class="c2"></span></p>
+                        <p class="c26"><span
+                                style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 588.00px; height: 349.33px;"><img
+                                    alt="" src="images/image1.png"
+                                    style="width: 588.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
+                                    title=""></span></p>
+                        <p class="c17"><span class="c3">Figure 9:</span><span class="c3">&nbsp;Empirical MSE for KNN,
+                                Smoothing Spline,
+                                Random Forest, and Boosting.</span></p>
+                        <h1 class="c7" id="h.itge7a2kl9rf"><span class="c27 c15">Findings/Conclusion </span></h1>
+                        <p class="c11"><span class="c2">This experiment compared the performance of four non-parametric
+                                regression models
+                                &mdash; KNN Regression, Smoothing Splines, Random Forest, and Boosting &mdash; under
+                                both equidistant and
+                                non-equidistant designs. By simulating data from a known true function, we were able to
+                                evaluate and
+                                visualize empirical bias, variance, and mean squared error (MSE), which are normally
+                                impossible to compute
+                                when the true function is unknown in real-world data. </span></p>
+                        <p class="c11"><span class="c2">Across both parts, all models were able to capture the overall
+                                structure of the
+                                Mexican hat function. However, their performance differed in terms of the
+                                bias&ndash;variance
+                                trade-off.</span></p>
+                        <p class="c11"><span class="c2">Smoothing Splines consistently displayed smooth, low-bias curves
+                                and performed
+                                especially well in regions with sparse data, showing stability due to its global basis
+                                formulation.</span>
+                        </p>
+                        <p class="c11"><span class="c2">KNN Regression produced locally flexible estimates, but as
+                                expected, was sensitive
+                                to data density. Its performance degraded slightly in non-equidistant regions where
+                                fewer neighbors were
+                                available.</span></p>
+                        <p class="c11"><span class="c2">Random Forest showed strong performance across both designs,
+                                with relatively low
+                                variance and bias. This is due to averaging across many de-correlated trees, which
+                                stabilizes
+                                predictions.</span></p>
+                        <p class="c11"><span class="c2">Boosting achieved high accuracy in dense regions but showed
+                                noticeable spikes in
+                                bias and MSE in sparse areas, especially in the non-equidistant design. This suggests
+                                that sequential
+                                learning can overcorrect noise when data is unevenly distributed.</span></p>
+                        <p class="c11"><span class="c2">In terms of overall predictive accuracy, Random Forest and
+                                Smoothing Splines offered
+                                the most consistent balance between bias and variance, while Boosting demonstrated high
+                                flexibility but was
+                                more sensitive to tuning and instability in data-sparse regions. KNN Regression remained
+                                intuitive and
+                                competitive but was dependent on local data availability and the choice of K.</span></p>
+                        <p class="c11"><span class="c3">This simulation confirms the theoretical relationship
+                            </span><span class="c3 c8">MSE
+                                = Bias^2 + Variance + Sigma^2 </span><span class="c2">and shows how model flexibility,
+                                smoothing, and tuning
+                                directly influence each component of error. Overall, this experiment highlights that no
+                                model universally
+                                dominates; rather, model selection should depend on data structure, smoothness of the
+                                underlying function,
+                                and the trade-off between interpretability and predictive stability.</span></p>
+                        <p class="c11 c92"><span class="c3 c45 c8 c15"></span></p>
+                        <p class="c11 c92"><span class="c2"></span></p>
+                        <p class="c9"><span class="c2"></span></p>
+                        <h1 class="c7" id="h.mlrm4okfda3a"><span class="c27 c15">Appendix: Glossary of Terms</span>
+                        </h1>
+                        <p class="c11"><span class="c13">Bias:</span><span class="c3">&nbsp;Measures how far the average
+                                prediction of the
+                                model is from the true underlying function.</span></p>
+                        <p class="c11"><span class="c13">Bootstrap sample:</span><span class="c3">&nbsp;A random select
+                                of observations from
+                                the original dataset with replacement; repeated B times to generate B datasets.</span>
+                        </p>
+                        <p class="c11"><span class="c13">Cross Validation:</span><span class="c2">&nbsp;When the model
+                                is trained using
+                                different values of the tuning parameter and an average validation error is computed
+                                across all folds.
+                            </span></p>
+                        <p class="c11"><span class="c13">Ensemble:</span><span class="c3">&nbsp;An approach that
+                                combines many simple models
+                                to form one final model that may potentially be more powerful.</span></p>
+                        <p class="c11"><span class="c13">MSE:</span><span class="c3">&nbsp;The average of the squared
+                                differences between
+                                the model&rsquo;s predictions and the true function values. It combines both bias and
+                                variance, </span><span class="c3 c8">MSE = Bias^2 + Variance</span></p>
+                        <p class="c11"><span class="c13">Variance:</span><span class="c2">&nbsp;Measures how much the
+                                model&rsquo;s
+                                predictions vary across different datasets. It is the average of the squared deviations
+                                of predictions from
+                                their mean prediction.</span></p>
+                        <p class="c11 c92"><span class="c2"></span></p>
+                        <p class="c11 c92"><span class="c2"></span></p>
+                        <p class="c11 c92"><span class="c2"></span></p>
+                        <div>
+                            <p class="c33 c92"><span class="c15 c37"></span></p>
+                        </div>
+                    </div>
+
+                </article>
+            </div>
+
+            <aside class="blog-rail" aria-label="Sidebar">
+                <div class="rail-card">
+                    <div class="rail-title">On this page</div>
+                    <nav class="rail-nav" id="toc">
+                        <a href="#h.cefylqgkieet">Introduction</a>
+                        <a href="#h.kytn3gs6p02m">Data Sources</a>
+                        <a href="#h.hchncyohvplw">Methodology</a>
+                        <a href="#h.osf3bn10x9bk">Results</a>
+                        <a href="#h.itge7a2kl9rf">Findings/Conclusion</a>
+                        <a href="#h.mlrm4okfda3a">Appendix</a>
+
+                    </nav>
+                </div>
+
+            </aside>
+
+            <div class="post-footer">
+                <p class="backline">
+                    <a class="back-link" href="../../index.html">← Back to Blog</a>
+                </p>
+            </div>
+        </div>
+
+        </div>
+    </main>
+</body>
+
+</html>
