@@ -1,13 +1,10 @@
 :root {
-    /* Editorial base */
     --bg: #ffffff;
     --text: #1b1b1b;
     --muted: #666;
     --rule: #e7e7e7;
     --link: #0b57d0;
-    /* Reading width (NEWS-LIKE) */
     --max: 120ch;
-    /* Notebook seam */
     --paper: #ffffff;
     --seam-gutter: 22px;
     --seam-strip: 46px;
@@ -15,7 +12,6 @@
     --spiral-opacity: 0.9;
 }
 
-/* ===== Base ===== */
 * {
     box-sizing: border-box;
 }
@@ -103,7 +99,6 @@ a:hover {
     color: var(--text);
 }
 
-/* ===== Page 2-column layout ===== */
 .blog-layout {
     max-width: 1200px;
     margin: 0 auto;
@@ -115,7 +110,6 @@ a:hover {
 }
 
 
-/* ===== Article card ===== */
 .doc-post {
     background: var(--card);
     border: 1px solid var(--border);
@@ -135,7 +129,6 @@ a:hover {
     background: transparent !important;
 }
 
-/* ===== Article card (single source of truth) ===== */
 .doc-post {
     position: relative;
     background: var(--card);
@@ -149,12 +142,10 @@ a:hover {
     overflow: hidden;
 }
 
-/* Optional: limit reading width without re-centering */
 .doc-post .doc-content {
     max-width: 860px;
 }
 
-/* Stop Google doc wrapper from forcing page-like padding */
 .doc-content,
 .c21.doc-content,
 .c21 {
@@ -162,8 +153,6 @@ a:hover {
     padding: 0 !important;
     background: transparent !important;
 }
-
-/* ===== Sidebar cards ===== */
 
 .blog-rail{
   position: sticky;
@@ -242,20 +231,17 @@ a:hover {
     letter-spacing: -0.02em !important;
 }
 
-/* Make author + date sit inline like news metadata */
 .doc-post .subtitle p {
     display: inline;
     margin: 0;
 }
 
-/* Add spacing between name and date */
 .doc-post .subtitle p+p::before {
     content: " · ";
     color: var(--muted);
     padding: 0 .25rem;
 }
 
-/* 2) Subtitle / deck text below headline */
 .doc-post .subtitle {
     margin: 0 0 1.2rem !important;
     padding: 0 !important;
@@ -266,7 +252,6 @@ a:hover {
     color: var(--muted) !important;
 }
 
-/* If the subtitle uses spans like .subhead */
 .doc-post .subtitle .subhead {
     display: block;
     margin-top: .2rem;
@@ -275,7 +260,6 @@ a:hover {
 }
 
 
-/* ===== Responsive: stack on mobile ===== */
 @media (max-width: 980px) {
     .blog-layout {
         grid-template-columns: 1fr;
