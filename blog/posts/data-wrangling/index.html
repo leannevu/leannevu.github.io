@@ -76,9 +76,9 @@
                                 columns, and saving
                                 cleaned results forces you to think about how data enters, moves through, and exits a
                                 system. At the same
-                                time, casting columns, choosing between </span><span class="c7">object</span><span
+                                time, casting columns, choosing between </span><span class="c69">object</span><span
                                 class="c8 c12">&nbsp;and
-                            </span><span class="c7">string</span><span class="c8 c12">, handling missing values, and
+                            </span><span class="c69">string</span><span class="c8 c12">, handling missing values, and
                                 reshaping data make
                                 data types feel concrete rather than abstract. Together, these steps reinforce the idea
                                 that Python objects
@@ -119,11 +119,11 @@
                                 conditions element-wise across columns. Assignments, arithmetic operations, merges, and
                                 masks all rely on
                                 this same alignment behavior. This is also why logical operators like </span><span
-                                class="c7">&amp;</span><span class="c8">, </span><span class="c7">|</span><span
+                                class="c69">&amp;</span><span class="c8">, </span><span class="c69">|</span><span
                                 class="c8">, and
-                            </span><span class="c7">~</span><span class="c8">&nbsp;are required instead of </span><span
-                                class="c7">and</span><span class="c8">, </span><span class="c7">or</span><span
-                                class="c8">, and </span><span class="c7">not</span><span class="c3">&mdash;conditions
+                            </span><span class="c69">~</span><span class="c8">&nbsp;are required instead of </span><span
+                                class="c69">and</span><span class="c8">, </span><span class="c69">or</span><span
+                                class="c8">, and </span><span class="c69">not</span><span class="c3">&mdash;conditions
                                 are vectors, not single booleans. Errors such as
                                 &ldquo;The truth value of a Series is ambiguous&rdquo; stop being confusing once you
                                 internalize that pandas
@@ -140,7 +140,7 @@
                         <p class="c13"><span class="c8"><br>Figure 2— The top table is a DataFrame with an explicit column
                                 and the bottom table
                                 shows the Boolean mask produced by the vectorized condition</span><span
-                                class="c7">sentiment ==
+                                class="c69">sentiment ==
                                 &quot;positive&quot;</span><span class="c3">. Crucially, the mask preserves the same
                                 index labels as the
                                 original DataFrame. This visualization highlights that boolean filtering in pandas
@@ -155,12 +155,12 @@
                         <p class="c13"><span class="c8">Figure 3— This code demonstrates how a Boolean mask is generated
                                 from a column-wise
                                 condition and then applied to a DataFrame. The expression </span><span
-                                class="c7">df[&quot;sentiment&quot;]
+                                class="c69">df[&quot;sentiment&quot;]
                                 == &quot;positive&quot;</span><span class="c8">&nbsp;returns a Boolean Series that
                                 retains the
                                 DataFrame&rsquo;s index labels. When used in </span><span
-                                class="c7">df[mask]</span><span class="c8">&nbsp;or </span><span
-                                class="c7">df.loc[mask]</span><span class="c8">, pandas aligns the mask to
+                                class="c69">df[mask]</span><span class="c8">&nbsp;or </span><span
+                                class="c69">df.loc[mask]</span><span class="c8">, pandas aligns the mask to
                                 the DataFrame by index. If index labels do not match&mdash;either due to mismatched
                                 values or differing
                                 index ranges&mdash;pandas may raise an error or, more subtly, perform alignment that
@@ -177,14 +177,14 @@
                                 back to an index,
                                 and many pandas operations return new objects rather than mutating existing ones. Text
                                 cleaning exposes this
-                                immediately&mdash;calling </span><span class="c7">.replace()</span><span
-                                class="c8">&nbsp;or </span><span class="c7">.strip()</span><span
+                                immediately&mdash;calling </span><span class="c69">.replace()</span><span
+                                class="c8">&nbsp;or </span><span class="c69">.strip()</span><span
                                 class="c8">&nbsp;without reassignment does nothing. At the same time,
                                 wrangling introduces performance considerations that explain </span><span
                                 class="c8 c14">why</span><span class="c8">&nbsp;this design exists. Python loops are
-                                slow at scale, </span><span class="c7">.apply()</span><span class="c8">&nbsp;can be
+                                slow at scale, </span><span class="c69">.apply()</span><span class="c8">&nbsp;can be
                                 expensive, and vectorized operations and
-                            </span><span class="c7">.map()</span><span class="c3">&nbsp;are preferred because they
+                            </span><span class="c69">.map()</span><span class="c3">&nbsp;are preferred because they
                                 operate efficiently under
                                 the hood. Pandas string methods, boolean masks, and arithmetic operations all work
                                 element-wise without
@@ -281,8 +281,8 @@
                                 class="c8">&nbsp;A
                                 flexible method available on both Series and DataFrames that applies a function across
                                 elements (Series) or
-                                across rows or columns (DataFrame, via </span><span class="c7">axis</span><span
-                                class="c8">). </span><span class="c7">.apply()</span><span class="c3">&nbsp;can access
+                                across rows or columns (DataFrame, via </span><span class="c69">axis</span><span
+                                class="c8">). </span><span class="c69">.apply()</span><span class="c3">&nbsp;can access
                                 multiple columns and express complex,
                                 non-vectorizable logic, but executes at the Python level and is therefore slower on
                                 large datasets.</span>
@@ -306,10 +306,10 @@
                         </p>
                         <p class="c5"><span class="c1">Element-wise transformation:</span><span class="c8">&nbsp;An
                                 operation applied
-                                independently to each value in a Series. Both </span><span class="c7">.map()</span><span
-                                class="c8">&nbsp;and Series-level </span><span class="c7">.apply()</span><span
+                                independently to each value in a Series. Both </span><span class="c69">.map()</span><span
+                                class="c8">&nbsp;and Series-level </span><span class="c69">.apply()</span><span
                                 class="c8">&nbsp;perform
-                                element-wise transformations, but </span><span class="c7">.map()</span><span
+                                element-wise transformations, but </span><span class="c69">.map()</span><span
                                 class="c3">&nbsp;is preferred
                                 when possible due to performance.</span></p>
                         <p class="c5"><span class="c1">Immutability:</span><span class="c3">&nbsp;A property of Python
@@ -331,9 +331,9 @@
                                 class="c8">&nbsp;A
                                 Series-only method for element-wise transformations that applies a function or mapping
                                 to each value
-                                independently. </span><span class="c7">.map()</span><span class="c8">&nbsp;is more
+                                independently. </span><span class="c69">.map()</span><span class="c8">&nbsp;is more
                                 efficient than
-                            </span><span class="c7">.apply()</span><span class="c3">&nbsp;because it preserves
+                            </span><span class="c69">.apply()</span><span class="c3">&nbsp;because it preserves
                                 pandas&rsquo; vectorized
                                 execution model, but it is limited to single-column operations.</span></p>
                         <p class="c5"><span class="c11">object</span><span class="c1">&nbsp;dtype:</span><span
@@ -354,7 +354,7 @@
                         <p class="c5"><span class="c1">Row-wise operation:</span><span class="c8">&nbsp;An operation
                                 that processes entire
                                 rows of a DataFrame at once (typically using </span><span
-                                class="c7">.apply(axis=1)</span><span class="c3">). Row-wise operations allow access to
+                                class="c69">.apply(axis=1)</span><span class="c3">). Row-wise operations allow access to
                                 multiple columns but break vectorization and are
                                 computationally expensive at scale.</span></p>
                         <p class="c5"><span class="c11">string</span><span class="c1">&nbsp;dtype:</span><span
