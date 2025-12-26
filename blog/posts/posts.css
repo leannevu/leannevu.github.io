@@ -259,6 +259,10 @@ a:hover {
     color: blue;
 }
 
+.doc-post .c7 {
+  color: #188038 !important;  
+  font-weight: 1000 !important;
+}
 
 @media (max-width: 980px) {
     .blog-layout {
