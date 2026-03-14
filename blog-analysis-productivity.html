@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Media vs Productivity</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0px 20px 20px 20px;
+      background-color: #C4A484;
+      color: black;
+    }
+    header {
+      background-color:#f8f9fa;
+      text-align: center;
+      display: flex;
+      gap: 5rem;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0px 50px 0px;
+      position: relative;
+      color: #333;
+    }
+
+    /* credits https://cocreate.localmotors.com/blog/post/zig-zag-borders-in-css/1205/ */
+    header:after {
+        background: linear-gradient(-45deg, #C4A484 16px, transparent 0), linear-gradient(45deg, #C4A484 16px, transparent 0);
+        background-position: left-bottom;
+        background-repeat: repeat-x;
+        background-size: 32px 32px;
+        content: " ";
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 32px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .button {
+      background-color: #cf780d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    h2 {
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 5px;
+    }
+    .flex-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .column {
+      flex: 1;
+      min-width: 300px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .sticky-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      padding-top: 1rem;
+    }
+    .note {
+      background: #fff58f;
+      width: 200px;
+      min-height: 150px;
+      padding: 1rem;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+      transform: rotate(-1.5deg);
+      transition: transform 0.2s ease;
+      border: 1px solid #fff58f;
+      font-weight: 500;
+      color: black;
+      line-height: 1.6;
+    }
+    .back-link {
+      display: block;
+      margin: 2rem auto;
+      text-align: center;
+      color: #f8f9fa;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+    <h1>Interactive EDA Dashboard</h1>
+    <a href="./blog-insight-productivity.html" class="button" target="_blank">View Full Insights Journal</a>
+    </header>
+    <h2>Analysis and Story Telling: EDA in Jupyter to presentation and user interactivity in full-stack</h2>
+    <p>This project marked a shift from full-stack product building to hands-on data exploration. I dove deep into a large behavioral dataset, adapting my analysis constantly as new questions emerged. It pushed me to think like a data analyst—while drawing on my backend and web development experience to build a platform that connects code, output, and insights in one seamless flow.</p>
+
+    <h2>Reflection</h2>
+    <p>Compared to my previous projects, this one was unique in that the star of the show was the exploratory analysis on a large dataset. I put on my analyst hat and dove deep into the data—constantly asking questions and adapting my approach based on what I discovered. Through this process, I developed a stronger sense of expertise with Python and applied my previous knowledge of databases and web development, including CRUD operations and data importing/exporting.</p>
+    <p>I also picked up new concepts like file handling, regex-based code highlighting, asynchronous vs. synchronous functions, and designing custom functions and routes to handle data via JSON. This project helped me start thinking more like a data analyst, while sharpening my development skills and staying true to my product-thinking mindset—always focused on shaping meaningful user experiences.</p>
+
+    <h2>Key Takeaways and Skills</h2>
+    <div class="flex-row">
+      <div class="column">
+        <h3>Analysis</h3>
+        <div class="sticky-notes">
+        <div class="note">Practiced asking analytical questions, interpreting unexpected results, and refining hypotheses based on the data</div>
+        <div class="note">Reinforced Python fluency while building a data-driven app from scratch using Flask</div>
+        </div>
+      </div>
+      <div class="column">
+        <h3>Development</h3>
+        <div class="sticky-notes">
+         <div class="note">Combined Jupyter, Flask, and pandas to guide users through analysis step-by-step</div>
+         <div class="note">Built a regex-based syntax highlighter to mimick Jupyter-style code presentation on the web for better readability.</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Looking Ahead</h2>
+    <p>This project made it clear how important it is to not only run calculations, but to ask good questions, evaluate assumptions, and explain the why behind the data.</p>
+    <ul>
+      <li>Strengthening my ability to ask sharper analytical questions</li>
+      <li>Practicing how to extract actionable insights from messy or ambiguous datasets</li>
+      <li>Using Python to automate reports and build visual narratives that clearly communicate findings</li>
+      <li>Evaluating the credibility and structure of the dataset</li>
+    </ul>
+
+    <h2>Final Thoughts</h2>
+    <p>This social media vs. productivity project helped me bridge the gap between exploratory analysis and real storytelling. While I didn’t find strong correlations where I expected to, I learned that data rarely tells a simple story upfront—you have to explore, question, and visualize your way through it.</p>
+    <p>It also pushed me to think beyond the notebook: to build a full environment where code, results, and insight live together in one interactive platform. I'm excited to keep building on these skills as I start my Master’s in Analytics and begin applying for data-focused internships.</p>
+  </div>
+  <a class="back-link" href="./blog.html">← Back to Main Blog Page</a>
+</body>
+</html>
