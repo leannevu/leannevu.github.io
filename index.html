@@ -33,7 +33,9 @@
             <div class="btn-container">
                 <button class="btn btn-color-2" onclick="window.open('./assets/vu_leanne_resume.pdf')">Download
                     CV</button>
-                <button class="btn btn-color-1" onclick="location.href='./#contact'">Contact Info</button>
+                <button class="btn btn-color-1"
+                    onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })">Contact
+                    Info</button>
             </div>
             <div id="socials-container">
                 <img src="./assets/linkedinlogo.png" alt="My LinkedIn profile" class="icon"
@@ -60,29 +62,40 @@
         <div class="experience-details-container">
             <div class="about-details-container">
                 <div class="about-containers">
-                    <div class="details-container">
-                        <img src="./assets/uwlogo.jpg" alt="Education logo" class="icon" />
-                        <h3>University of Washington</h3>
-                        <p>B.S. Bachelors Degree <br /></p>
+                    <div class="details-container about-card education-card">
+                        <img src="./assets/gtlogo.png" alt="Georgia Tech logo" class="icon education-icon" />
+                        <h3>Georgia Institute of Technology</h3>
+                        <p>M.S. Analytics, Computational Data</p>
                     </div>
-                    <div class="details-container">
+                    <div class="details-container about-card education-card">
+                        <img src="./assets/uwlogo.jpg" alt="University of Washington logo" class="icon education-icon" />
+                        <h3>University of Washington</h3>
+                        <p>B.S. Computer Science</p>
+                    </div>
+                    <div class="details-container about-card">
                         <img src="./assets/education-logo.png" alt="Education logo" class="icon" />
                         <h3>Projects</h3>
-                        <p>Full Stack Management <br /></p>
+                        <p>Full Stack Management</p>
                     </div>
                 </div>
                 <div class="text-container">
-                    <p>My name is Leanne Vu, and I am pursuing a Master of Science in
-                        Analytics (Computational Data Track) at Georgia Institute of Technology. My work focuses on building and evaluating data-driven
-                        systems, with an emphasis on understanding how modeling choices, representations, and evaluation
-                        frameworks shape real-world behavior. I started in full-stack web development (graduated at the University of Washington in Computer Science) and gradually
-                        shifted toward Python-based analysis and experimental workflows, where I build, iterate on, and
-                        analyze models using tools like Pandas, Scikit-learn, Matplotlib, and Flask, often embedding
-                        analysis directly into interactive applications. A defining part of my development has been
-                        maintaining a long-form technical blog, which reflects how I approach research more broadly:
-                        interrogating assumptions, evaluating trade-offs, and learning from failure modes. I am
-                        especially motivated by work that moves beyond static prediction toward systems that integrate
-                        data, reasoning, and user-facing design with clarity and rigor.</p>
+                    <p>I'm Leanne Vu, a Master of Science candidate in Analytics (Computational Data Track) at Georgia
+                        Institute of Technology. My work focuses on building and evaluating data-driven systems;
+                        specifically, how modeling choices, representations, and evaluation frameworks play out in
+                        practice, not just on paper.
+
+                        I started in full-stack web development, earned my CS degree from the University of Washington,
+                        and gradually moved toward Python-based analysis and experimental workflows. These days I spend
+                        most of my time designing and iterating on models using Pandas, Scikit-learn, Matplotlib, and
+                        Flask. I often embed the analysis directly into interactive applications rather than keeping it
+                        separate.
+
+                        I maintain a long-form technical blog, which is more about being honest and less about
+                        broadcasting. It's where I work through assumptions, document what broke and why, and think
+                        carefully about trade-offs. That habit shapes how I approach research more broadly.
+
+                        What drives me is rigorous user-facing systems that integrate data, reasoning, and usability.
+                    </p>
                 </div>
             </div>
         </div>
@@ -100,20 +113,6 @@
                         <article>
                             <img src="./assets/checkmarklogo.png" alt="Checkmark logo" class="icon" />
                             <div>
-                                <h3>HTML, CSS, Javascript, JQuery</h3>
-                                <p>Intermediate</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmarklogo.png" alt="Checkmark logo" class="icon" />
-                            <div>
-                                <h3>Java</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmarklogo.png" alt="Checkmark logo" class="icon" />
-                            <div>
                                 <h3>Python</h3>
                                 <p>Experienced</p>
                             </div>
@@ -121,8 +120,22 @@
                         <article>
                             <img src="./assets/checkmarklogo.png" alt="Checkmark logo" class="icon" />
                             <div>
-                                <h3>R</h3>
+                                <h3>GitHub Copilot, Claude, Cursor</h3>
                                 <p>Experienced</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmarklogo.png" alt="Checkmark logo" class="icon" />
+                            <div>
+                                <h3>R</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="./assets/checkmarklogo.png" alt="Checkmark logo" class="icon" />
+                            <div>
+                                <h3>HTML, CSS, Javascript, JQuery</h3>
+                                <p>Intermediate</p>
                             </div>
                         </article>
                     </div>
@@ -223,7 +236,8 @@
             </div>
             <h2 class="experience-sub-title project-title">SCRUM Central: Sprint and Task Dashboard</h2>
             <div class="btn-container">
-                <button class="btn  btn-color-2 project-btn" onclick="location.href='https://leannevuprojects.up.railway.app/scrum'">Open Site</button>
+                <button class="btn  btn-color-2 project-btn"
+                    onclick="location.href='https://leannevuprojects.up.railway.app/scrum'">Open Site</button>
                 <button class="btn  btn-color-2 project-btn"
                     onclick="location.href='https://github.com/leannevu/website-SCRUM-team-database-management'">Github</button>
             </div>
@@ -239,9 +253,9 @@
         </div>
         <div class="contact-info-upper-container">
             <div class="contact-icons">
-                <a href="mailto:leannevu00@gmail.com">
+                <a href="mailto:vuleanne@gmail.com">
                     <img src="./assets/emaillogo.jpg" alt="Email" class="icon contact-icon" />
-                    Leannevu00@gmail.com</a>
+                    vuleanne00@gmail.com</a>
                 <a href="https://www.linkedin.com/in/leannevu/">
                     <img src="./assets/linkedinlogo.png" alt="LinkedIn" class="icon contact-icon" />LinkedIn
                 </a>
@@ -261,5 +275,3 @@
 </body>
 
 </html>
-
-
