@@ -422,37 +422,80 @@ article p{
 }
 
 #projects {
-    position: relative;
+  position: relative;
 }
 
+.projects-heading{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 440px);
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 12px;
+}
 
-.project-img {
-    border-radius: 2rem;
-    width: 400px;
-    height: 290px;
-    margin: auto 0;
+.projects-note{
+  margin: 0;
+  color: var(--muted);
+  font-size: .98rem;
+  line-height: 1.5;
+}
+
+.project-logo-container{
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-items: center;
+}
+
+.project-img{
+  max-width: 110px;
+  max-height: 110px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  margin: 0;
 }
 
 .project-title {
-    margin: 1rem;
-    color: black;
+  margin: 0;
+  color: black;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.project-description{
+  margin: .45rem 0 0;
+  max-width: 64ch;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.project-copy{
+  min-width: 0;
+  flex: 1;
+}
+
+.project-copy .btn-container{
+  justify-content: flex-start;
 }
 
 .project-btn {
-    color: black;
-    border-color: rgb(163, 163, 163);
+  color: black;
+  border-color: rgb(163, 163, 163);
 }
 
 .project-details-container {
-  padding: 1.5rem;
-  flex: 1;
-
+  padding: 1.4rem 0;
   display: flex;
-  flex-direction: column;      
-  align-items: center;         
-  justify-content: center;    
-
-  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 28px;
+  text-align: left;
 }
 
 .divide{
@@ -462,10 +505,12 @@ article p{
 .divide::after{
   content: "";
   display: block;
-  width: 60%;             
+  width: 100%;
   height: 1px;
   background: rgba(0, 0, 0, 0.12);
-  margin: 1rem auto 0;    
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 
@@ -533,6 +578,38 @@ footer .nav-links{
 
   .about-containers{
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .projects-heading{
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .project-details-container{
+    align-items: flex-start;
+    gap: 16px;
+    padding: 1.2rem 0;
+  }
+
+  .project-logo-container{
+    flex-basis: 78px;
+    width: 78px;
+    height: 78px;
+  }
+
+  .project-img{
+    max-width: 70px;
+    max-height: 70px;
+  }
+
+  .project-title{
+    font-size: 1.2rem;
+  }
+
+  .project-description{
+    font-size: .95rem;
   }
 }
 
