@@ -6,6 +6,10 @@
     --link: #0b57d0;
     --max: 120ch;
     --paper: #ffffff;
+    --border: #e7e7e7;
+    --card: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,.06);
+    --container: 920px;
     --seam-gutter: 22px;
     --seam-strip: 46px;
     --seam-overlap: -10px;
@@ -18,7 +22,8 @@
 
 html,
 body {
-    height: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -55,12 +60,13 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
     padding: 18px 0;
     max-width: 1200px;
 }
 
 .container{
-  width: min(100% - 40px, var(--container));
+  width: min(100% - 32px, var(--container));
   margin-inline: auto;
 }
 
@@ -70,6 +76,7 @@ a:hover {
     align-items: center;
     text-decoration: none;
     color: inherit;
+    min-width: 0;
 }
 
 .avatar {
@@ -86,6 +93,7 @@ a:hover {
 .brand-tagline {
     font-size: 13px;
     color: var(--muted);
+    overflow-wrap: anywhere;
 }
 
 .top-nav a {
@@ -102,7 +110,7 @@ a:hover {
 .blog-layout {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 24px;
+    padding: clamp(16px, 4vw, 24px);
     display: grid;
     grid-template-columns: minmax(0, 1fr) 320px;
     gap: 28px;
@@ -144,6 +152,7 @@ a:hover {
 
 .doc-post .doc-content {
     max-width: 860px;
+    min-width: 0;
 }
 
 .doc-content,
@@ -217,6 +226,39 @@ a:hover {
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.doc-post span[style*="overflow: hidden"] img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.doc-post table,
+.doc-post pre,
+.doc-post code {
+    max-width: 100%;
+}
+
+.doc-post table {
+    display: block;
+    overflow-x: auto;
+}
+
+.doc-post pre {
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+.doc-post p,
+.doc-post li,
+.doc-post h1,
+.doc-post h2,
+.doc-post h3,
+.doc-post a {
+    overflow-wrap: anywhere;
 }
 
 /* 1) Make the exported Google Doc title look like the big headline */
@@ -228,7 +270,7 @@ a:hover {
     font-weight: 800 !important;
     font-size: clamp(2.1rem, 3.2vw, 3.1rem) !important;
     line-height: 1.08 !important;
-    letter-spacing: -0.02em !important;
+    letter-spacing: 0 !important;
 }
 
 .doc-post .subtitle p {
@@ -276,5 +318,39 @@ a:hover {
 
     .doc-post {
         padding: 36px 22px;
+    }
+}
+
+@media (max-width: 640px) {
+    .site-header {
+        padding: 12px 16px;
+    }
+
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .top-nav a {
+        margin-left: 0;
+        margin-right: 16px;
+    }
+
+    .blog-layout {
+        padding: 12px;
+    }
+
+    .doc-post {
+        border-radius: 10px;
+        padding: 26px 16px;
+    }
+
+    .doc-post .title {
+        font-size: clamp(2rem, 10vw, 2.55rem) !important;
+    }
+
+    .doc-post .subtitle {
+        font-size: 1rem !important;
     }
 }

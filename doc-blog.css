@@ -1,0 +1,218 @@
+:root {
+  --bg: #ffffff;
+  --text: #1b1b1b;
+  --muted: #666;
+  --border: #e7e7e7;
+  --card: #ffffff;
+  --shadow: 0 10px 30px rgba(0,0,0,.06);
+  --link: #0b57d0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+a {
+  color: var(--link);
+  overflow-wrap: anywhere;
+}
+
+.blog-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 24px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 28px;
+  align-items: start;
+}
+
+.blog-main,
+.doc-wrap,
+.doc-content {
+  min-width: 0;
+}
+
+.doc-post {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 48px 32px;
+  overflow: hidden;
+}
+
+.doc-content,
+.c21.doc-content,
+.c21 {
+  max-width: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.doc-post img {
+  display: block;
+  margin: 32px auto;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.doc-post span[style*="overflow: hidden"] {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.doc-post span[style*="overflow: hidden"] img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.doc-post table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.doc-post pre,
+.doc-post code {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.doc-post p,
+.doc-post li,
+.doc-post h1,
+.doc-post h2,
+.doc-post h3 {
+  overflow-wrap: anywhere;
+}
+
+.doc-post .title {
+  margin: 0 0 .6rem !important;
+  padding: 0 !important;
+  text-align: left !important;
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(2.1rem, 3.2vw, 3.1rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0 !important;
+}
+
+.doc-post .subtitle {
+  margin: 0 0 1.2rem !important;
+  padding: 0 !important;
+  text-align: left !important;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.45 !important;
+  color: var(--muted) !important;
+}
+
+.doc-post .subtitle .subhead {
+  display: block;
+  margin-top: .2rem;
+  font-weight: 500;
+  color: blue;
+}
+
+.blog-rail {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rail-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+  padding: 16px;
+}
+
+.rail-title {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.rail-nav {
+  max-height: 45vh;
+  overflow: auto;
+}
+
+.rail-nav a,
+.rail-list a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #111827;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.rail-nav a:hover,
+.rail-list a:hover {
+  background: rgba(17, 24, 39, .05);
+}
+
+@media (max-width: 980px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-rail {
+    position: static;
+    order: 2;
+  }
+
+  .doc-post {
+    padding: 36px 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-layout {
+    padding: 12px;
+  }
+
+  .doc-post {
+    border-radius: 10px;
+    padding: 26px 16px;
+  }
+
+  .doc-post .title {
+    font-size: clamp(2rem, 10vw, 2.55rem) !important;
+  }
+
+  .doc-post .subtitle {
+    font-size: 1rem !important;
+  }
+}
