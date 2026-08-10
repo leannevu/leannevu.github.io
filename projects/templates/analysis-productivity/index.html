@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EDA Interactivity Dashboard — Social Media vs Productivity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='analysis-productivity/stylesheet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='project_template.css') }}?v=1">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner page-shell">
+            <a class="brand" href="https://leannevu.com/">
+                <img class="avatar" src="{{ url_for('static', filename='scrum/leanne-vu.jpg') }}" alt="Leanne Vu">
+                <div>
+                    <div class="brand-name">Leanne Vu</div>
+                    <div class="brand-tagline">
+                        Writing about data, product, and building practical analytics.
+                    </div>
+                </div>
+            </a>
+
+            <nav class="top-nav">
+                <a href="https://leannevu.com/">Portfolio</a>
+                <a href="#blog">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-shell">
+
+        <section class="hero">
+            <p class="eyebrow">Portfolio Demo</p>
+            <h1>EDA Interactivity Dashboard: Social Media vs Productivity</h1>
+            <p class="hero-text">
+                An interactive exploratory data analysis experience designed to make code,
+                results, and visual insights easier to follow step by step — similar to a guided notebook workflow.
+            </p>
+        </section>
+
+        <section class="project-switcher" data-project-tabs>
+            <div class="project-tab-track" role="tablist">
+                <button class="project-tab-button active" type="button" role="tab" aria-selected="true" data-project-tab="demo">Project Demo</button>
+                <button class="project-tab-button" type="button" role="tab" aria-selected="false" data-project-tab="info">Additional Information</button>
+                <button class="project-tab-button" type="button" role="tab" aria-selected="false" data-project-tab="architecture">Architecture</button>
+                <button class="project-tab-button" type="button" role="tab" aria-selected="false" data-project-tab="blog">Blog</button>
+            </div>
+
+            <div class="project-tab-panels">
+                <section class="project-tab-panel active" id="project-demo" role="tabpanel" data-project-panel="demo">
+        <section class="app-shell">
+            <div class="app-topbar">
+                <div class="window-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="app-title">Analysis Workspace</div>
+            </div>
+
+            <div class="console-toolbar">
+                <p id="guide">
+                    Explore the analysis section by section. Each block lets you reveal code and results independently,
+                    and the guided arrow lets you move through the workflow in sequence.
+                </p>
+                <a href="https://leannevu.com/blog-insight-productivity.html" class="button journal-link" target="_blank">
+                    View Full Insights Journal
+                </a>
+            </div>
+
+            <section class="workspace-layout">
+                <aside id="next-button" class="side-control">
+                    <button onclick="nextButton()">-- &gt;</button>
+                    <p>Next section</p>
+                </aside>
+
+                <div class="analysis-stream">
+
+                    <section id="0" class="analysis-card">
+                        <p class="analysis-label">Step 01</p>
+                        <p class="analysis-text">#Setting the journal up - imports, turning the dataset into a dataframe, and brief overview on the dataset</p>
+                        <div class="action-row">
+                            <button onclick="printCode(0)">See Code</button>
+                            <button onclick="getResult(0)">See Result</button>
+                        </div>
+                        <div id="output_code_0"></div>
+                        <div id="line0" class="line"></div>
+                        <div id="output_result_0"></div>
+                    </section>
+
+                    <section id="1" class="analysis-card">
+                        <p class="analysis-label">Step 02</p>
+                        <p class="analysis-text">#Check correlations between attributes; unstack, filter and sort highest correlations, and drop duplicates</p>
+                        <div class="action-row">
+                            <button onclick="printCode(1)">See Code</button>
+                            <button onclick="getResult(1)">See Result</button>
+                        </div>
+                        <div id="output_code_1"></div>
+                        <div id="line1" class="line"></div>
+                        <div id="output_result_1"></div>
+                    </section>
+
+                    <section id="2" class="analysis-card">
+                        <p class="analysis-label">Step 03</p>
+                        <p class="analysis-text">#From previous correlations, we learned that job satisfaction is strongly linked to productivity score<br>#See what attributes have numeric values to find more correlations linked to job satisfaction and productivity</p>
+                        <div class="action-row">
+                            <button onclick="printCode(2)">See Code</button>
+                            <button onclick="getResult(2)">See Result</button>
+                        </div>
+                        <div id="output_code_2"></div>
+                        <div id="line2" class="line"></div>
+                        <div id="output_result_2"></div>
+                    </section>
+
+                    <section id="3" class="analysis-card">
+                        <p class="analysis-label">Step 04</p>
+                        <p class="analysis-text">#dfjs = df_job_satifaction_social_media; find high correlations with job satisfaction or productivity (not between each other) for more general insight</p>
+                        <div class="action-row">
+                            <button onclick="printCode(3)">See Code</button>
+                            <button onclick="getResult(3)">See Result</button>
+                        </div>
+                        <div id="output_code_3"></div>
+                        <div id="line3" class="line"></div>
+                        <div id="output_result_3"></div>
+                    </section>
+
+                    <section id="4" class="analysis-card">
+                        <p class="analysis-label">Step 05</p>
+                        <p class="analysis-text">#Create correlation matrix & visualize if what I am seeing (low correlations between variables) is true<br>#Create mask for the upper triangle to use when plotting heatmap- remove unnecessary visual duplicates</p>
+                        <div class="action-row">
+                            <button onclick="printCode(4)">See Code</button>
+                            <button onclick="getResult(4)">See Result</button>
+                        </div>
+                        <div id="output_code_4"></div>
+                        <div id="line4" class="line"></div>
+                        <div id="output_result_4"></div>
+                    </section>
+
+                    <section id="5" class="analysis-card">
+                        <p class="analysis-label">Step 06</p>
+                        <p class="analysis-text">#Try grouping by age to find if there is a possible correlation between the mean of social media use,<br>productivity, and screen time before sleep between age groups</p>
+                        <div class="action-row">
+                            <button onclick="printCode(5)">See Code</button>
+                            <button onclick="getResult(5)">See Result</button>
+                        </div>
+                        <div id="output_code_5"></div>
+                        <div id="line5" class="line"></div>
+                        <div id="output_result_5"></div>
+                    </section>
+
+                    <section id="6" class="analysis-card">
+                        <p class="analysis-label">Step 07</p>
+                        <p class="analysis-text">#Grouping with age bins for further analysis and reassurance<br>#Aggregate mean and median of selected columns, grouped with age bins</p>
+                        <div class="action-row">
+                            <button onclick="printCode(6)">See Code</button>
+                            <button onclick="getResult(6)">See Result</button>
+                        </div>
+                        <div id="output_code_6"></div>
+                        <div id="line6" class="line"></div>
+                        <div id="output_result_6"></div>
+                    </section>
+
+                    <section id="7" class="analysis-card">
+                        <p class="analysis-label">Step 08</p>
+                        <p class="analysis-text">#See distribution of screen time before sleep among all participants</p>
+                        <div class="action-row">
+                            <button onclick="printCode(7)">See Code</button>
+                            <button onclick="getResult(7)">See Result</button>
+                        </div>
+                        <div id="output_code_7"></div>
+                        <div id="line7" class="line"></div>
+                        <div id="output_result_7"></div>
+                    </section>
+
+                    <section id="8" class="analysis-card">
+                        <p class="analysis-label">Step 09</p>
+                        <p class="analysis-text">#Compare Screen Time mean for each age range; does one group significantly<br>make up the frequency in a certain range of screen time?<br>#Boxplot to show spread + outliers</p>
+                        <div class="action-row">
+                            <button onclick="printCode(8)">See Code</button>
+                            <button onclick="getResult(8)">See Result</button>
+                        </div>
+                        <div id="output_code_8"></div>
+                        <div id="line8" class="line"></div>
+                        <div id="output_result_8"></div>
+                    </section>
+
+                    <section id="9" class="analysis-card">
+                        <p class="analysis-label">Step 10</p>
+                        <p class="analysis-text">#See the frequency for each combination of screen time range and age group; create age and screen time bins<br>and use groupby and size() to count combinations // also can use .crosstab<br>heatmap visualization of results</p>
+                        <div class="action-row">
+                            <button onclick="printCode(9)">See Code</button>
+                            <button onclick="getResult(9)">See Result</button>
+                        </div>
+                        <div id="output_code_9"></div>
+                        <div id="line9" class="line"></div>
+                        <div id="output_result_9"></div>
+                    </section>
+
+                    <section id="10" class="analysis-card">
+                        <p class="analysis-label">Step 11</p>
+                        <p class="analysis-text">#Same idea as last section, but group by age range, gender, and productivity: frequency for each combination<br>#Bin age and productivity into ranges, cross tab, and unstack/heatmap for visualization of results</p>
+                        <div class="action-row">
+                            <button onclick="printCode(10)">See Code</button>
+                            <button onclick="getResult(10)">See Result</button>
+                        </div>
+                        <div id="output_code_10"></div>
+                        <div id="line10" class="line"></div>
+                        <div id="output_result_10"></div>
+                    </section>
+
+                    <section id="11" class="analysis-card">
+                        <p class="analysis-label">Step 12</p>
+                        <p class="analysis-text">#How specific can we get with our analysis? Count percentages of frequency for each age/gender group, using last section's dataframe<br>#Use groupby and div to count percentage of each group // also can use .crosstab:<br>#Format and display data with %<br>#Heatmap</p>
+                        <div class="action-row">
+                            <button onclick="printCode(11)">See Code</button>
+                            <button onclick="getResult(11)">See Result</button>
+                        </div>
+                        <div id="output_code_11"></div>
+                        <div id="line11" class="line"></div>
+                        <div id="output_result_11"></div>
+                    </section>
+
+                    <section id="12" class="analysis-card">
+                        <p class="analysis-label">Step 13</p>
+                        <p class="analysis-text">#Does gender have an impact on the results we've seen so far? Group by age range and gender and measure the median<br>in actual_productivity_score</p>
+                        <div class="action-row">
+                            <button onclick="printCode(12)">See Code</button>
+                            <button onclick="getResult(12)">See Result</button>
+                        </div>
+                        <div id="output_code_12"></div>
+                        <div id="line12" class="line"></div>
+                        <div id="output_result_12"></div>
+                    </section>
+
+                    <section id="13" class="analysis-card">
+                        <p class="analysis-label">Step 14</p>
+                        <p class="analysis-text">#Count size of each gender and age range group to see data credibility</p>
+                        <div class="action-row">
+                            <button onclick="printCode(13)">See Code</button>
+                            <button onclick="getResult(13)">See Result</button>
+                        </div>
+                        <div id="output_code_13"></div>
+                        <div id="line13" class="line"></div>
+                        <div id="output_result_13"></div>
+                    </section>
+
+                </div>
+            </section>
+        </section>
+
+                </section>
+
+                <section class="project-tab-panel project-tab-info" id="additional-info" role="tabpanel" data-project-panel="info" hidden>
+                    <section class="content-sections">
+                        <section class="plain-project-section" id="personas">
+                            <p class="section-label">Personas</p>
+                            <div class="circle-flow persona-circle-flow three">
+                                <article><span>DL</span><strong>Data Learner</strong><p>Needs a guided EDA path with code visible on demand.</p></article>
+                                <article><span>IR</span><strong>Insight Reader</strong><p>Wants outputs and interpretation without notebook clutter.</p></article>
+                                <article><span>TR</span><strong>Technical Reviewer</strong><p>Checks the analysis steps behind each conclusion.</p></article>
+                            </div>
+                        </section>
+
+                        <section class="plain-project-section" id="user-stories">
+                            <p class="section-label">User Stories</p>
+                            <div class="circle-flow story-circle-flow six">
+                                <article><span>1</span><strong>Open Analysis</strong><p>Start at the first EDA section.</p></article>
+                                <article><span>2</span><strong>Reveal Code</strong><p>Inspect implementation only when useful.</p></article>
+                                <article><span>3</span><strong>Reveal Result</strong><p>Compare the output beside the method.</p></article>
+                                <article><span>4</span><strong>Move Forward</strong><p>Use the guided arrow to continue.</p></article>
+                                <article><span>5</span><strong>Connect Insight</strong><p>Build context across each section.</p></article>
+                                <article><span>6</span><strong>Open Journal</strong><p>End with the full written analysis.</p></article>
+                            </div>
+                        </section>
+
+                        <section class="plain-project-section" id="journey-map">
+                            <p class="section-label">Journey Map</p>
+                            <div class="circle-flow dependency-journey five">
+                                <article><span>A</span><strong>Frame</strong><p>Import and inspect the dataset.</p></article>
+                                <article><span>B</span><strong>Explore</strong><p>Find correlations and distributions.</p></article>
+                                <article><span>C</span><strong>Compare</strong><p>Group by age, gender, and productivity.</p></article>
+                                <article><span>D</span><strong>Visualize</strong><p>Use plots to make patterns readable.</p></article>
+                                <article><span>E</span><strong>Synthesize</strong><p>Translate analysis into a journal narrative.</p></article>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+
+                <section class="project-tab-panel project-tab-info" id="architecture" role="tabpanel" data-project-panel="architecture" hidden>
+                    <section class="content-sections architecture-sections">
+                        <section class="plain-project-section architecture-visual-section">
+                            <div class="architecture-diagram" aria-label="EDA dashboard architecture">
+                                <div class="system-box browser-box">
+                                    <span>Browser Client</span>
+                                    <div class="tech-box">EDA Workspace UI</div>
+                                    <div class="tech-box">Code / Result Toggles</div>
+                                    <div class="tech-box">Step Navigation</div>
+                                </div>
+                                <div class="system-box api-box">
+                                    <span>Flask App</span>
+                                    <div class="tech-box">Project Route</div>
+                                    <div class="tech-box accent">Static Analysis Assets</div>
+                                    <div class="tech-box">Blog Link</div>
+                                </div>
+                                <div class="system-box data-box">
+                                    <span>Data Layer</span>
+                                    <div class="tech-box data">CSV Dataset</div>
+                                    <div class="tech-box">Generated Tables</div>
+                                    <div class="tech-box">Chart Assets</div>
+                                </div>
+                                <div class="system-box analytics-box">
+                                    <span>Analytics Layer</span>
+                                    <div class="tech-box bigquery">Pandas</div>
+                                    <div class="tech-box">Matplotlib</div>
+                                    <div class="tech-box">EDA Notebook Logic</div>
+                                </div>
+                                <svg class="architecture-lines" viewBox="0 0 1000 580" aria-hidden="true">
+                                    <defs><marker id="archArrowShared" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs>
+                                    <path d="M780 150 C700 150 640 170 560 240"></path>
+                                    <path d="M500 330 C470 390 380 420 265 454"></path>
+                                    <path d="M550 330 C585 390 680 420 760 454"></path>
+                                </svg>
+                            </div>
+                        </section>
+                        <section class="plain-project-section architecture-visual-section">
+                            <div class="sequence-flow">
+                                <div><span>1</span><p>Dataset is prepared for exploratory analysis.</p></div>
+                                <div><span>2</span><p>Pandas creates grouped summaries and comparisons.</p></div>
+                                <div><span>3</span><p>Matplotlib outputs charts and visual evidence.</p></div>
+                                <div><span>4</span><p>Flask serves the guided project page.</p></div>
+                                <div><span>5</span><p>The reader moves through code, results, and journal context.</p></div>
+                            </div>
+                        </section>
+                        <section class="plain-project-section architecture-visual-section">
+                            <div class="stack-matrix">
+                                <div><strong>UI</strong><span>HTML / CSS / JavaScript</span></div>
+                                <div><strong>Server</strong><span>Flask route</span></div>
+                                <div><strong>Data</strong><span>Social media productivity CSV</span></div>
+                                <div><strong>Analysis</strong><span>Pandas / Matplotlib</span></div>
+                                <div><strong>Output</strong><span>Code blocks, results, visual insights</span></div>
+                                <div><strong>Writeup</strong><span>External insight journal</span></div>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+<section class="project-tab-panel" id="blog" role="tabpanel" data-project-panel="blog" hidden>
+                    <div class="project-tab-blog">
+                        <p class="section-label">Project Writeup</p>
+                        <h2>Read the productivity insight journal.</h2>
+                        <p>The long-form writeup explains the analysis path and insight decisions behind the interactive dashboard.</p>
+                        <a class="button" href="https://leannevu.com/blog-insight-productivity.html" target="_blank" rel="noopener">Open Blog</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='project_tabs.js') }}"></script>
+    <script src="{{ url_for('static', filename='analysis-productivity/index.js') }}"></script>
+</body>
+</html>

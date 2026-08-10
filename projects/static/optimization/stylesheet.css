@@ -1,0 +1,123 @@
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #6f6f6f;
+    --line: #d8d8d2;
+    --soft: #f5f5f2;
+}
+
+.original-optimization-demo {
+    display: flex;
+    min-height: 430px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 36px 0 18px;
+    font-size: 200%;
+    text-align: center;
+}
+
+.optimization-image-output {
+    width: min(100%, 900px);
+    min-height: 32px;
+}
+
+.optimization-image-output img {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--line);
+    background: #ffffff;
+}
+
+#action-button {
+    border: 1px solid #000000;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 12px 18px;
+    font: inherit;
+    font-size: large;
+    cursor: pointer;
+}
+
+#action-button:hover {
+    background: #2a2a2a;
+}
+
+.optimization-result-output {
+    width: 100%;
+    margin: 0;
+    overflow-x: auto;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+table {
+    min-width: 680px;
+    width: 100%;
+    margin: 0 0 16px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border-bottom: 1px solid var(--line);
+    padding: 10px;
+}
+
+.table-label {
+    width: 250px;
+    font-size: large;
+    text-align: left;
+}
+
+.table-rest {
+    padding: 10px;
+    font-size: large;
+    text-align: left;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000000;
+    background: #000000;
+    color: #ffffff;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    .original-optimization-demo {
+        min-height: 340px;
+        font-size: 150%;
+    }
+}
+
+@media (max-width: 640px) {
+    .original-optimization-demo {
+        min-height: 260px;
+        gap: 18px;
+        padding-top: 20px;
+        font-size: 100%;
+    }
+
+    #action-button,
+    .button {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .table-label {
+        width: 150px;
+        font-size: 0.92rem;
+        white-space:normal;
+    }
+
+    .table-rest {
+        font-size: 0.92rem;
+        white-space:nowrap;
+    }
+}
