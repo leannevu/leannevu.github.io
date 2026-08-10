@@ -155,9 +155,42 @@ body{
 }
 
 @media (max-width: 600px){
+  .container{
+    width: min(100% - 28px, var(--container));
+  }
+
   .header-inner{
     align-items: flex-start;
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .brand{
+    width: 100%;
+  }
+
+  .brand-tagline{
+    line-height: 1.35;
+  }
+
+  .top-nav{
+    display: flex;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .top-nav a{
+    min-height: 44px;
+    margin-left: 0;
+    padding: 11px 12px 9px 0;
+  }
+
+  .blog-intro{
+    padding: 38px 0 22px;
+  }
+
+  .blog-intro h1{
+    font-size: clamp(2.35rem, 14vw, 3.1rem);
   }
 
   .card-link{
@@ -166,5 +199,11 @@ body{
 
   .blog-card h2{
     font-size: 23px;
+    overflow-wrap: anywhere;
+  }
+
+  .excerpt,
+  .meta{
+    overflow-wrap: anywhere;
   }
 }

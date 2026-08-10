@@ -1,0 +1,417 @@
+BLOG IMPORT AND STANDARDIZATION GUIDE
+=====================================
+
+Purpose
+-------
+Use this guide whenever a blog paper is downloaded from Google Docs as an
+unzipped HTML document. Following these steps will make the new article match
+the existing blog pages in layout, typography, metadata, figures, captions,
+image popups, navigation, and mobile behavior.
+
+
+1. EXPORT AND UNZIP THE GOOGLE DOC
+----------------------------------
+
+1. In Google Docs, choose File > Download > Web Page (.html, zipped).
+2. Unzip the downloaded file.
+3. Confirm the export contains:
+   - One HTML file.
+   - An images folder, if the paper contains images.
+4. Do not copy the exported HTML directly over an existing blog page.
+   Google Docs includes document-specific CSS that can override the blog's
+   standard typography and spacing.
+
+
+2. CREATE THE ARTICLE FOLDER
+----------------------------
+
+Create a lowercase, hyphenated folder under:
+
+    blog/posts/article-name/
+
+The finished folder should look like:
+
+    blog/posts/article-name/
+        index.html
+        images/
+            image1.png
+            image2.png
+            ...
+
+Copy the exported images into the new images folder. Keep image paths relative:
+
+    images/image1.png
+
+Do not use local computer paths such as C:\Users\... in the HTML.
+
+
+3. START FROM AN EXISTING BLOG TEMPLATE
+---------------------------------------
+
+Copy the overall page structure from a current standardized article, such as:
+
+    blog/posts/my-dashboard/index.html
+
+Keep these shared elements:
+
+   - <!doctype html>
+   - <html>, <head>, and viewport metadata.
+   - The site header, avatar, Portfolio link, and Blog link.
+   - <main id="content" class="wrap">.
+   - <div class="blog-layout">.
+   - <article class="doc-post">.
+   - <div class="doc-content">.
+   - The "On this page" sidebar.
+   - The "Back to Blog" footer.
+   - The shared stylesheet link.
+   - The shared image-popup script.
+
+The article page must load these files from its folder level:
+
+    <link rel="stylesheet" href="../posts.css">
+    <script src="../posts.js"></script>
+
+Place the script immediately before </body>.
+
+
+4. UPDATE PAGE METADATA
+-----------------------
+
+Update the browser title to describe the article:
+
+    <title>Article Title — Leanne Vu</title>
+
+Confirm every article contains:
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+The viewport line is required for mobile layouts.
+
+
+5. STANDARDIZE THE ARTICLE HEADER
+---------------------------------
+
+Use this logical order:
+
+    Article title
+    Subtitle
+    Leanne Vu
+    Publication date
+
+Preferred markup:
+
+    <h1 class="title">Article Title</h1>
+    <p class="subtitle">
+        <span class="subhead">Article subtitle</span>
+    </p>
+    <p class="subtitle">
+        <span class="byline">Leanne Vu<br>Month Day, Year</span>
+    </p>
+
+If the Google Docs export separates the author and date into two paragraphs,
+either combine them into the preferred byline markup or apply the same shared
+subtitle/byline structure to both rows.
+
+Header requirements:
+
+   - The title uses class="title".
+   - The descriptive subtitle uses class="subhead".
+   - The author/date uses class="byline".
+   - The subtitle is blue, bold, and uses the standard size from posts.css.
+   - The author and date are muted gray and regular weight.
+   - Do not add inline font sizes, colors, margins, or font families.
+   - Do not leave empty subtitle paragraphs above or below the metadata.
+
+
+6. MOVE IN THE ARTICLE CONTENT
+------------------------------
+
+Copy only the paper content from the exported HTML into .doc-content. Do not
+copy the exported document's full <html>, <head>, or <body> wrappers.
+
+When possible, use clean semantic HTML:
+
+    <h1 id="section-id">1 Section Heading</h1>
+    <p>Paragraph text...</p>
+    <ul>
+        <li>List item</li>
+    </ul>
+
+Google Docs class names such as c0, c17, and c24 may remain temporarily, but
+they should not control the visible design. Shared posts.css rules must control
+the final font, sizing, spacing, and colors.
+
+Remove or neutralize:
+
+   - Empty paragraphs and empty headings.
+   - Repeated <br> tags used only for vertical spacing.
+   - Fixed page widths and max-width values from Google Docs.
+   - Large exported padding values.
+   - Centered body paragraphs that should be left-aligned.
+   - Inline local-file links.
+   - Duplicate headings or page-break markers.
+
+Do not remove intentional bold, italic, citation, or hyperlink formatting.
+
+
+7. HANDLE GOOGLE DOCS CSS SAFELY
+-------------------------------
+
+Google Docs often places a large <style> block in the exported HTML. It can
+contain classes that set fonts, font sizes, padding, colors, and fixed widths.
+
+Preferred approach:
+
+   1. Remove the exported <style> block when clean semantic markup has replaced
+      the export classes.
+   2. If the export classes must remain, add a unique article class:
+
+          <article class="doc-post article-name-post">
+
+   3. Add narrowly scoped normalization rules to posts.css using that class.
+   4. Never add broad overrides that accidentally change every existing post.
+
+Normalize these properties when the export overrides them:
+
+   - font-family
+   - font-size
+   - line-height
+   - color
+   - margin
+   - padding
+   - text-align
+   - width, height, and max-width
+
+
+8. STANDARDIZE SECTION HEADINGS AND BODY TEXT
+---------------------------------------------
+
+All main section headings should:
+
+   - Use heading elements, preferably <h1> within the article.
+   - Have a stable, unique id for the sidebar link.
+   - Use consistent numbering and capitalization.
+   - Be left-aligned.
+   - Use the shared Georgia/serif article typography.
+
+Body paragraphs and lists should:
+
+   - Use the shared article font and readable line height.
+   - Be left-aligned unless the content specifically requires otherwise.
+   - Avoid fixed widths.
+   - Wrap on narrow screens.
+   - Use consistent paragraph spacing.
+
+For bullet lists, verify:
+
+   - Every marker has visible spacing before its text.
+   - List items do not contain exported top/bottom padding.
+   - There is a clear gap after the entire list before the next paragraph.
+
+
+9. STANDARDIZE IMAGES AND FIGURE CAPTIONS
+-----------------------------------------
+
+Every article image must be inside .doc-post and use a relative source:
+
+    <p>
+        <span><img src="images/image1.png" alt="Descriptive alt text"></span>
+    </p>
+    <p>Figure 1—Caption explaining the image.</p>
+
+The caption may also appear in the same paragraph after the image. The shared
+posts.js file recognizes both arrangements.
+
+Figure requirements:
+
+   - Number figures sequentially: Figure 1, Figure 2, Figure 3, etc.
+   - Use one dash style consistently after the number.
+   - Write a meaningful caption for every analytical figure.
+   - Give every image useful alt text; do not leave alt="" for informative
+     figures.
+   - Confirm the caption belongs to the image immediately above it.
+   - Do not repeat or skip figure numbers.
+   - Do not use a paragraph from the next section as a caption.
+
+Shared posts.js automatically:
+
+   - Makes article images clickable and keyboard-accessible.
+   - Opens the enlarged image in a popup.
+   - Places the matching caption below the enlarged image.
+   - Adds standardized figure/caption classes.
+
+Shared posts.css automatically standardizes:
+
+   - Caption font, size, gray color, italics, and line height.
+   - Space above the image.
+   - Space between the image and its caption.
+   - Space after the caption.
+   - Mobile image and popup sizing.
+
+
+10. BUILD THE "ON THIS PAGE" SIDEBAR
+------------------------------------
+
+Add one sidebar link for each main article section:
+
+    <nav class="rail-nav" id="toc">
+        <a href="#problem-definition">Problem Definition</a>
+        <a href="#methodology">Methodology</a>
+        <a href="#results">Results</a>
+        <a href="#conclusion">Conclusion</a>
+    </nav>
+
+Each href must exactly match a heading id in the article:
+
+    <h1 id="problem-definition">1 Problem Definition</h1>
+
+Sidebar requirements:
+
+   - Link labels should be short and readable.
+   - Links must follow the article's section order.
+   - Do not link to removed headings.
+   - Do not use duplicate ids.
+   - Test every link.
+
+
+11. ADD THE ARTICLE TO THE BLOG INDEX
+------------------------------------
+
+Add a card to:
+
+    blog/index.html
+
+Use the existing blog-card structure and include:
+
+   - Correct relative article link.
+   - Article title.
+   - One- or two-sentence excerpt.
+   - Publication date.
+   - Topic labels separated consistently.
+
+Open the card from the blog index and verify it reaches the correct article.
+
+
+12. REQUIRED FINAL CHECKLIST
+----------------------------
+
+Page structure
+
+    [ ] The article has its own lowercase, hyphenated folder.
+    [ ] The article file is named index.html.
+    [ ] Images are stored in the article's images folder.
+    [ ] All image and navigation paths are relative and valid.
+    [ ] posts.css is loaded.
+    [ ] posts.js is loaded immediately before </body>.
+    [ ] The page includes the mobile viewport meta tag.
+
+Header
+
+    [ ] Browser title is correct.
+    [ ] Article title uses class="title".
+    [ ] Subtitle uses class="subhead".
+    [ ] Author/date uses class="byline".
+    [ ] Subtitle is blue, bold, and consistently sized.
+    [ ] Author/date is muted gray and consistently sized.
+    [ ] Header spacing matches the other articles.
+    [ ] No empty exported lines appear around the header.
+
+Article typography and spacing
+
+    [ ] Body text uses the standard serif article font.
+    [ ] Body text is the same size and color as other posts.
+    [ ] Section headings match other posts.
+    [ ] Paragraph spacing is consistent.
+    [ ] No Google Docs CSS causes unexpected Arial, Palatino, or tiny text.
+    [ ] No unexplained blank lines appear before or after sections.
+    [ ] Bold and italic emphasis remains intentional.
+
+Lists
+
+    [ ] Bullets or numbers display correctly.
+    [ ] There is space between each marker and its text.
+    [ ] List-item spacing is consistent.
+    [ ] There is a clear gap after the list.
+
+Figures
+
+    [ ] Every informative image has descriptive alt text.
+    [ ] Images fit inside the article card without horizontal overflow.
+    [ ] Figure numbers are sequential and unique.
+    [ ] Every figure has the correct caption.
+    [ ] Caption font and gray color match the other blogs.
+    [ ] Spacing above images and after captions is consistent.
+    [ ] Clicking each image opens the correct enlarged image.
+    [ ] The correct caption appears in each popup.
+    [ ] Popup closes with the X button, outside click, and Escape.
+    [ ] Images can be opened with Enter or Space from the keyboard.
+
+Navigation
+
+    [ ] Portfolio, Blog, and Back to Blog links work.
+    [ ] Every "On this page" link works.
+    [ ] Sidebar links match the visible headings and section order.
+    [ ] The article card on blog/index.html works.
+
+Desktop and mobile
+
+    [ ] Test at a desktop width around 1200–1440 px.
+    [ ] Test at a tablet width around 768 px.
+    [ ] Test at a mobile width around 375–430 px.
+    [ ] No horizontal scrollbar appears at any tested width.
+    [ ] Long titles wrap without being clipped.
+    [ ] Header links are easy to tap.
+    [ ] Images, captions, tables, and embeds remain inside the screen.
+    [ ] The sidebar moves below the article on narrow screens.
+    [ ] The image popup fits within the mobile viewport.
+    [ ] Popup captions remain readable on mobile.
+
+Content quality
+
+    [ ] Dates, names, section numbers, and figure numbers are correct.
+    [ ] Smart quotes, apostrophes, dashes, and bullets render correctly.
+    [ ] No broken encoding appears, such as â€” or Â·.
+    [ ] No draft notes, duplicate paragraphs, or empty headings remain.
+    [ ] All external links open the intended destination.
+    [ ] Spelling and punctuation have been reviewed.
+
+Technical verification
+
+    [ ] Refresh with Ctrl+F5 to bypass cached CSS and JavaScript.
+    [ ] Open the article from localhost, not only as a local file.
+    [ ] Check the browser console for missing files or script errors.
+    [ ] Confirm every image returns successfully and displays.
+    [ ] Confirm the page works with JavaScript enabled.
+    [ ] Confirm the article remains readable if JavaScript is unavailable.
+
+
+13. LOCAL REVIEW
+----------------
+
+From the repository root, start the local site:
+
+    python -m http.server 8000
+
+If that command is unavailable, use:
+
+    py -m http.server 8000
+
+Open:
+
+    http://localhost:8000/blog/posts/article-name/
+
+Also review the blog index:
+
+    http://localhost:8000/blog/
+
+Use Ctrl+C in the terminal to stop the server.
+
+
+DEFINITION OF DONE
+------------------
+
+A new blog article is complete only when it visually matches the established
+article template, all sidebar and site links work, every figure has the correct
+caption and popup behavior, there is no horizontal overflow, and the full final
+checklist passes on desktop, tablet, and mobile.
