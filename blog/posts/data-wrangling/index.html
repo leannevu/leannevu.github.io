@@ -48,13 +48,13 @@
                                 most effective ways
                                 to learn Python foundations because it repeatedly exercises core language concepts in
                                 realistic,
-                                high-friction scenarios</span></p>
+                                high friction scenarios</span></p>
                         <p class="c20 subtitle" id="h.cdc0hjtbzhgf"><span class="c28 byline">Leanne Vu<br>December 13, 2025</span></p>
                         <h1 class="c16" id="h.cefylqgkieet"><span class="c28">Introduction</span></h1>
                         <p class="c29"><span class="c8 c23 c12">When I first learned Python, I became familiar with its
-                                syntax&mdash;variables, loops, and functions&mdash;but I lacked a deeper understanding
+                                syntax variables, loops, and functions but I lacked a deeper understanding
                                 of how the language
-                                behaves in real-world computational systems. While I could write functional code, I did
+                                behaves in real world computational systems. While I could write functional code, I did
                                 not yet have a
                                 mental model for how Python processes data at scale or how design decisions influence
                                 correctness and
@@ -63,7 +63,7 @@
                                 required me to engage directly with Python&rsquo;s underlying principles, including data
                                 flow, indexing and
                                 alignment, immutability, vectorized computation, file input and output, and performance
-                                trade-offs. In this
+                                trade offs. In this
                                 context, data wrangling became not just a preparatory step for analysis, but a practical
                                 framework for
                                 learning Python&rsquo;s foundational behavior.</span></p>
@@ -86,13 +86,13 @@
                                 class="c8 c12 c23">, not just variables
                                 in memory. Instead of treating data as something that magically appears ready for
                                 analysis, you begin to
-                                think in transformations&mdash;raw &rarr; inspected &rarr; cleaned &rarr; structured
+                                think in transformations raw &rarr; inspected &rarr; cleaned &rarr; structured
                                 &rarr; analyzable. As
-                                illustrated in Figure 1, concrete pandas operations map directly onto higher-level
+                                illustrated in Figure 1, concrete pandas operations map directly onto higher level
                                 stages like input,
-                                inspection, transformation, and output. This shift&mdash;from writing isolated lines of
+                                inspection, transformation, and output. This shift from writing isolated lines of
                                 code to designing
-                                data pipelines and transformations&mdash;is one of the most important steps in becoming
+                                data pipelines and transformations is one of the most important steps in becoming
                                 fluent in
                                 Python.</span></p>
                         <p class="c30 c36"><span class="c3"></span></p>
@@ -103,9 +103,9 @@
                                     alt="" src="images/image1.png"
                                     style="width: 469.77px; height: 754.64px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                                     title=""></span></p>
-                        <p class="c13"><span class="c8">Figure 1— contrasts data wrangling in code with data wrangling
+                        <p class="c13"><span class="c8">Figure 1  contrasts data wrangling in code with data wrangling
                                 in abstraction,
-                                showing how concrete pandas operations map directly onto higher-level stages like input,
+                                showing how concrete pandas operations map directly onto higher level stages like input,
                                 inspection,
                                 transformation, and output.<br> </span></p>
                         <h1 class="c24" id="h.hchncyohvplw"><span>2 Structure, Indexing, and Alignment as a Core Mental
@@ -116,14 +116,14 @@
                                 collections of data. Boolean
                                 filtering works not because of loops, but because pandas aligns Series by index labels
                                 and applies
-                                conditions element-wise across columns. Assignments, arithmetic operations, merges, and
+                                conditions element wise across columns. Assignments, arithmetic operations, merges, and
                                 masks all rely on
                                 this same alignment behavior. This is also why logical operators like </span><span
                                 class="c69">&amp;</span><span class="c8">, </span><span class="c69">|</span><span
                                 class="c8">, and
                             </span><span class="c69">~</span><span class="c8">&nbsp;are required instead of </span><span
                                 class="c69">and</span><span class="c8">, </span><span class="c69">or</span><span
-                                class="c8">, and </span><span class="c69">not</span><span class="c3">&mdash;conditions
+                                class="c8">, and </span><span class="c69">not</span><span class="c3"> conditions
                                 are vectors, not single booleans. Errors such as
                                 &ldquo;The truth value of a Series is ambiguous&rdquo; stop being confusing once you
                                 internalize that pandas
@@ -137,7 +137,7 @@
                                     alt="" src="images/image2.png"
                                     style="width: 588.00px; height: 491.00px; margin-left: -0.00px; margin-top: -0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                                     title=""></span></p>
-                        <p class="c13"><span class="c8"><br>Figure 2— The top table is a DataFrame with an explicit column
+                        <p class="c13"><span class="c8"><br>Figure 2  The top table is a DataFrame with an explicit column
                                 and the bottom table
                                 shows the Boolean mask produced by the vectorized condition</span><span
                                 class="c69">sentiment ==
@@ -152,8 +152,8 @@
                                     alt="" src="images/image4.png"
                                     style="width: 588.00px; height: 317.00px; margin-left: -0.00px; margin-top: -0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                                     title=""></span></p>
-                        <p class="c13"><span class="c8">Figure 3— This code demonstrates how a Boolean mask is generated
-                                from a column-wise
+                        <p class="c13"><span class="c8">Figure 3  This code demonstrates how a Boolean mask is generated
+                                from a column wise
                                 condition and then applied to a DataFrame. The expression </span><span
                                 class="c69">df[&quot;sentiment&quot;]
                                 == &quot;positive&quot;</span><span class="c8">&nbsp;returns a Boolean Series that
@@ -161,9 +161,9 @@
                                 DataFrame&rsquo;s index labels. When used in </span><span
                                 class="c69">df[mask]</span><span class="c8">&nbsp;or </span><span
                                 class="c69">df.loc[mask]</span><span class="c8">, pandas aligns the mask to
-                                the DataFrame by index. If index labels do not match&mdash;either due to mismatched
+                                the DataFrame by index. If index labels do not match either due to mismatched
                                 values or differing
-                                index ranges&mdash;pandas may raise an error or, more subtly, perform alignment that
+                                index ranges pandas may raise an error or, more subtly, perform alignment that
                                 yields unintended
                                 results. Correct filtering therefore depends on maintaining consistent and meaningful
                                 index labels
@@ -177,7 +177,7 @@
                                 back to an index,
                                 and many pandas operations return new objects rather than mutating existing ones. Text
                                 cleaning exposes this
-                                immediately&mdash;calling </span><span class="c69">.replace()</span><span
+                                immediately calling </span><span class="c69">.replace()</span><span
                                 class="c8">&nbsp;or </span><span class="c69">.strip()</span><span
                                 class="c8">&nbsp;without reassignment does nothing. At the same time,
                                 wrangling introduces performance considerations that explain </span><span
@@ -187,10 +187,10 @@
                             </span><span class="c69">.map()</span><span class="c3">&nbsp;are preferred because they
                                 operate efficiently under
                                 the hood. Pandas string methods, boolean masks, and arithmetic operations all work
-                                element-wise without
+                                element wise without
                                 explicit loops. Together, immutability and vectorization teach you to think not just
                                 about whether code
-                                works, but how it runs. This performance intuition is foundational&mdash;not only for
+                                works, but how it runs. This performance intuition is foundational not only for
                                 data science, but for
                                 writing efficient, scalable Python in any context.<br><br></span></p>
                         <p class="c26"><span class="c3"></span></p>
@@ -199,15 +199,15 @@
                                     alt="" src="images/image3.png"
                                     style="width: 635.00px; height: 190.91px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                                     title=""></span></p>
-                        <p class="c13"><span class="c8">Figure 4— </span><span class="c8">Immutability and vectorization
+                        <p class="c13"><span class="c8">Figure 4  </span><span class="c8">Immutability and vectorization
                                 as complementary
                                 design principles in pandas.</span><span class="c8 c14">&nbsp;</span><span
-                                class="c3">Row-wise Python loops
+                                class="c3">Row wise Python loops
                                 operate on individual elements and encourage mutable thinking, but perform poorly at
                                 scale. In contrast,
                                 pandas emphasizes immutable, vectorized operations that apply transformations across
                                 entire columns at once.
-                                Returning new objects enables safe, index-aligned computation while allowing pandas to
+                                Returning new objects enables safe, index aligned computation while allowing pandas to
                                 execute operations
                                 efficiently using optimized underlying implementations. </span></p>
                         <h1 class="c22" id="h.itge7a2kl9rf"><span>4 Vectorization as the Unifying Principle Between
@@ -223,7 +223,7 @@
                                 columns at once, relying
                                 on underlying optimized implementations. This is why boolean masks, string methods,
                                 arithmetic operations,
-                                and comparisons feel expressive and concise&mdash;they are operating on vectors of data,
+                                and comparisons feel expressive and concise they are operating on vectors of data,
                                 not individual
                                 values. Understanding vectorization changes how you approach problems: rather than
                                 asking how to loop
@@ -237,14 +237,14 @@
                                     alt="" src="images/image5.png"
                                     style="width: 668.00px; height: 322.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
                                     title=""></span></p>
-                        <p class="c13"><span class="c8">Figure 5— Scalar versus vectorized function application. The
+                        <p class="c13"><span class="c8">Figure 5  Scalar versus vectorized function application. The
                                 figure contrasts
-                                row-wise evaluation f(xi)f(x_i)f(xi&#8203;) with vectorized application
+                                row wise evaluation f(xi)f(x_i)f(xi&#8203;) with vectorized application
                                 f(x)f(\mathbf{x})f(x), illustrating
                                 how pandas operates on entire data vectors rather than individual values. This
                                 perspective underlies
-                                index-aligned operations, immutable transformations, and the performance advantages of
-                                column-wise execution
+                                index aligned operations, immutable transformations, and the performance advantages of
+                                column wise execution
                                 discussed in the text. </span></p>
                         <p class="c6"><span class="c9 c8"></span></p>
                         <p class="c6"><span class="c3"></span></p>
@@ -253,20 +253,20 @@
                         <p class="c5"><span class="c9 c8">What makes data wrangling such an effective way to learn
                                 Python is how naturally
                                 it layers foundational ideas. You start by developing a mental model for
-                                structure&mdash;labels, indexing,
-                                and alignment&mdash;then confront the language&rsquo;s behavior through immutability,
+                                structure labels, indexing,
+                                and alignment then confront the language&rsquo;s behavior through immutability,
                                 assignment, and object
                                 creation. Together, these ideas set the stage for the unifying principle that underlies
                                 pandas performance
                                 and expressiveness: vectorization. Each concept builds on the last, not in isolation,
                                 but through repeated
                                 exposure in realistic workflows.</span></p>
-                        <p class="c5"><span class="c9 c8">If you want to truly learn Python&mdash;not just syntax, but
-                                behavior&mdash;data
+                        <p class="c5"><span class="c9 c8">If you want to truly learn Python not just syntax, but
+                                behavior data
                                 wrangling is one of the most effective paths. It compresses file handling, data
                                 structures, immutability,
                                 performance, debugging, and transformation into a single workflow that mirrors
-                                real-world problems. By the
+                                real world problems. By the
                                 time you&rsquo;re comfortable cleaning and preparing data, you&rsquo;ve internalized
                                 Python&rsquo;s
                                 foundations in a way that no isolated tutorial can provide.</span></p>
@@ -284,13 +284,13 @@
                                 across rows or columns (DataFrame, via </span><span class="c69">axis</span><span
                                 class="c8">). </span><span class="c69">.apply()</span><span class="c3">&nbsp;can access
                                 multiple columns and express complex,
-                                non-vectorizable logic, but executes at the Python level and is therefore slower on
+                                non vectorizable logic, but executes at the Python level and is therefore slower on
                                 large datasets.</span>
                         </p>
                         <p class="c5"><span class="c1">Boolean masking:</span><span class="c3">&nbsp;A filtering
                                 technique in pandas where a
                                 Boolean Series (True/False values) is used to select rows from a DataFrame; masks are
-                                applied element-wise
+                                applied element wise
                                 and aligned by index.</span></p>
                         <p class="c5"><span class="c1">Data pipeline:</span><span class="c3">&nbsp;A structured sequence
                                 of steps through
@@ -304,12 +304,12 @@
                                 as loading data, handling missing values, type casting, filtering, merging, and
                                 exporting results.</span>
                         </p>
-                        <p class="c5"><span class="c1">Element-wise transformation:</span><span class="c8">&nbsp;An
+                        <p class="c5"><span class="c1">Element wise transformation:</span><span class="c8">&nbsp;An
                                 operation applied
                                 independently to each value in a Series. Both </span><span class="c69">.map()</span><span
-                                class="c8">&nbsp;and Series-level </span><span class="c69">.apply()</span><span
+                                class="c8">&nbsp;and Series level </span><span class="c69">.apply()</span><span
                                 class="c8">&nbsp;perform
-                                element-wise transformations, but </span><span class="c69">.map()</span><span
+                                element wise transformations, but </span><span class="c69">.map()</span><span
                                 class="c3">&nbsp;is preferred
                                 when possible due to performance.</span></p>
                         <p class="c5"><span class="c1">Immutability:</span><span class="c3">&nbsp;A property of Python
@@ -326,16 +326,16 @@
                                 which pandas
                                 automatically matches data based on index labels when performing operations across
                                 Series or DataFrames,
-                                enabling correct element-wise operations without explicit loops.</span></p>
+                                enabling correct element wise operations without explicit loops.</span></p>
                         <p class="c5"><span class="c11">.map()</span><span class="c1">&nbsp;(pandas):</span><span
                                 class="c8">&nbsp;A
-                                Series-only method for element-wise transformations that applies a function or mapping
+                                Series only method for element wise transformations that applies a function or mapping
                                 to each value
                                 independently. </span><span class="c69">.map()</span><span class="c8">&nbsp;is more
                                 efficient than
                             </span><span class="c69">.apply()</span><span class="c3">&nbsp;because it preserves
                                 pandas&rsquo; vectorized
-                                execution model, but it is limited to single-column operations.</span></p>
+                                execution model, but it is limited to single column operations.</span></p>
                         <p class="c5"><span class="c11">object</span><span class="c1">&nbsp;dtype:</span><span
                                 class="c3">&nbsp;A generic
                                 pandas data type that can hold mixed Python objects, including strings, numbers, and
@@ -343,18 +343,18 @@
                                 flexibility but can lead to inconsistent behavior and slower performance.</span></p>
                         <p class="c5"><span class="c1">Performance intuition:</span><span class="c3">&nbsp;An
                                 understanding of how design
-                                choices&mdash;such as vectorization, immutability, and avoiding Python
-                                loops&mdash;affect execution speed,
+                                choices such as vectorization, immutability, and avoiding Python
+                                loops affect execution speed,
                                 scalability, and memory usage.</span></p>
                         <p class="c5"><span class="c1">Return type:</span><span class="c3">&nbsp;The type of object
                                 produced by an operation
                                 (e.g., Series, DataFrame, tuple, generator); understanding return types is critical for
                                 debugging chained
                                 operations and predicting behavior.</span></p>
-                        <p class="c5"><span class="c1">Row-wise operation:</span><span class="c8">&nbsp;An operation
+                        <p class="c5"><span class="c1">Row wise operation:</span><span class="c8">&nbsp;An operation
                                 that processes entire
                                 rows of a DataFrame at once (typically using </span><span
-                                class="c69">.apply(axis=1)</span><span class="c3">). Row-wise operations allow access to
+                                class="c69">.apply(axis=1)</span><span class="c3">). Row wise operations allow access to
                                 multiple columns but break vectorization and are
                                 computationally expensive at scale.</span></p>
                         <p class="c5"><span class="c11">string</span><span class="c1">&nbsp;dtype:</span><span

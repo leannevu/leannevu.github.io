@@ -44,7 +44,7 @@
                         <p class="c6 title" id="h.dcw4yvbmetsm"><span class="c15 c43">Understanding Predictive
                                 Performance Beyond Linear
                                 Models</span></p>
-                        <p class="c34 subtitle" id="h.b1q4m9o5dve"><span class="c15 c28 subhead">Bias&ndash;variance
+                        <p class="c34 subtitle" id="h.b1q4m9o5dve"><span class="c15 c28 subhead">Bias variance
                                 behavior of parametric and
                                 local smoothing regression techniques in simulated settings</span></p>
                         <p class="c29 c38 subtitle" id="h.cdc0hjtbzhgf"><span class="c15 byline">Leanne Vu<br>October 26,
@@ -54,9 +54,9 @@
                                 models and
                                 understanding their predictive performance.</span><span class="c3 c24">&nbsp;I&rsquo;ve
                                 explored
-                            </span><span class="c18 c3 c15">linear regression and its variants&mdash;first for
+                            </span><span class="c18 c3 c15">linear regression and its variants first for
                                 classification, then for
-                                continuous prediction&mdash;focusing on how parametric models make assumptions about
+                                continuous prediction focusing on how parametric models make assumptions about
                                 data structure to
                                 minimize prediction error.</span><span class="c3 c15 c18">&nbsp;Beyond parametric models
                                 are non parametric
@@ -75,7 +75,7 @@
                                 model practicality, using the Mexican hat function as the true function. Moreover, the
                                 experiment compares
                                 the performance of these models based on equidistant and non equidistant points in the
-                                interval -2pi and pi,
+                                interval  2pi and pi,
                                 which analyzes how the models perform in different scenarios of data sparsity (how data
                                 is spaced
                                 out).</span></p>
@@ -83,9 +83,9 @@
                                 class="c15">&nbsp;</span></h1>
                         <p class="c32"><span class="c3">I am using randomized data sets that have the underlying famous
                                 Mexican hat function
-                            </span><span class="c3 c8">f(x) = (1-x^2)exp(-0.5x^2)</span><span class="c2">&nbsp;with x
+                            </span><span class="c3 c8">f(x) = (1 x^2)exp( 0.5x^2)</span><span class="c2">&nbsp;with x
                                 values within the
-                                range -2pi and pi: </span></p>
+                                range  2pi and pi: </span></p>
                         <ol class="c25 lst-kix_ruh72q78053z-0 start" start="1">
                             <li class="c19 li-bullet-0"><span class="c2">101 Equidistant x points </span></li>
                             <li class="c19 li-bullet-0"><span class="c3">101 non equidistant x points. The non
@@ -131,13 +131,13 @@
                                 have the true
                                 function. Because the experiment is conducted as a simulation, where randomized data
                                 sets and the true
-                                function are computed, the variance-bis trade off can be mathematically computed.
+                                function are computed, the variance bis trade off can be mathematically computed.
                             </span><span class="c3 c8">MSE^2 = Bias^2 + Variance + Sigma^2</span><span
                                 class="c2">&nbsp;is the formula derived to
                                 compute measurements of bias, variance, and MSE. &nbsp;</span></p>
                         <p class="c4"><span class="c2">Before generating data and fitting models in the experiment, it
                                 is necessary to tune
-                                parameters for the non-parametric models: KNN Regression, Random Forest, and Boosting.
+                                parameters for the non parametric models: KNN Regression, Random Forest, and Boosting.
                                 In parametric models,
                                 tuning pertains to the coefficients of a fixed linear formula. In the case of non
                                 parametric models,
@@ -150,12 +150,12 @@
                         <h2 class="c0" id="h.wra5evus8bqs"><span class="c12">2.1 KNN Regression</span></h2>
                         <p class="c4"><span class="c2">The KNN Regression model relies on a select number (K) of data
                                 points dependent on
-                                the value of the predictor variable, known as K-Nearest Neighbors. The predicted value
+                                the value of the predictor variable, known as K Nearest Neighbors. The predicted value
                                 is the average of K
                                 closest data points closest to the value. </span></p>
                         <p class="c4"><span class="c2">Tuning K in KNN Regression compares the prediction error of the
                                 model across
-                                different Ks, to select the optimal number of neighbors (K) in the K-Nearest Neighbors
+                                different Ks, to select the optimal number of neighbors (K) in the K Nearest Neighbors
                                 algorithm. The
                                 greater K is, the more prone the model is to high bias due to the nature of
                                 smoothing.</span></p>
@@ -174,12 +174,12 @@
                                 sparse regions.</span></p>
                         <p class="c4"><span class="c2">Tuning is performed using the smoothing parameter &lambda;, which
                                 controls the
-                                trade-off between fit and smoothness. A small &lambda; allows the spline to closely
+                                trade off between fit and smoothness. A small &lambda; allows the spline to closely
                                 follow the data (low
                                 bias, high variance), while a large &lambda; produces a smoother, more generalized
                                 function (higher bias,
                                 lower variance). </span></p>
-                        <p class="c4"><span class="c2">Cross-validation is used to select the optimal &lambda;. </span>
+                        <p class="c4"><span class="c2">Cross validation is used to select the optimal &lambda;. </span>
                         </p>
                         <h2 class="c0" id="h.qtvfwb6obz0"><span class="c12">2.3 Random Forest</span></h2>
                         <p class="c4"><span class="c3">Random forest is an </span><span class="c3 c8">ensemble
@@ -189,7 +189,7 @@
                                 and reduce overfitting. Each tree is trained on a </span><span class="c3 c8">bootstrap
                                 sample</span><span class="c2">&nbsp;(see appendix A) of the data, and at each split,
                                 only a random subset of predictors is
-                                considered - which decorrelates the trees and improves performance. The final prediction
+                                considered   which decorrelates the trees and improves performance. The final prediction
                                 is the average of
                                 all trees. </span></p>
                         <p class="c4"><span class="c2">Tuning in Random Forest involves selecting parameters such
@@ -202,7 +202,7 @@
                                     (mtry = 1 for this
                                     experiment): affects variability and tree diversity </span></li>
                         </ul>
-                        <p class="c4"><span class="c3">Cross-validation or </span><span class="c3 c8">OOB </span><span
+                        <p class="c4"><span class="c3">Cross validation or </span><span class="c3 c8">OOB </span><span
                                 class="c2">(see
                                 appendix A) error is used to evaluate performance across tuning values to select the
                                 optimal combination of
@@ -317,45 +317,45 @@
                                 Smoothing Spline,
                                 Random Forest, and Boosting.</span></p>
                         <h1 class="c7" id="h.itge7a2kl9rf"><span class="c27 c15">Findings/Conclusion </span></h1>
-                        <p class="c11"><span class="c2">This experiment compared the performance of four non-parametric
+                        <p class="c11"><span class="c2">This experiment compared the performance of four non parametric
                                 regression models
-                                &mdash; KNN Regression, Smoothing Splines, Random Forest, and Boosting &mdash; under
+                                  KNN Regression, Smoothing Splines, Random Forest, and Boosting   under
                                 both equidistant and
-                                non-equidistant designs. By simulating data from a known true function, we were able to
+                                non equidistant designs. By simulating data from a known true function, we were able to
                                 evaluate and
                                 visualize empirical bias, variance, and mean squared error (MSE), which are normally
                                 impossible to compute
-                                when the true function is unknown in real-world data. </span></p>
+                                when the true function is unknown in real world data. </span></p>
                         <p class="c11"><span class="c2">Across both parts, all models were able to capture the overall
                                 structure of the
                                 Mexican hat function. However, their performance differed in terms of the
-                                bias&ndash;variance
-                                trade-off.</span></p>
-                        <p class="c11"><span class="c2">Smoothing Splines consistently displayed smooth, low-bias curves
+                                bias variance
+                                trade off.</span></p>
+                        <p class="c11"><span class="c2">Smoothing Splines consistently displayed smooth, low bias curves
                                 and performed
                                 especially well in regions with sparse data, showing stability due to its global basis
                                 formulation.</span>
                         </p>
                         <p class="c11"><span class="c2">KNN Regression produced locally flexible estimates, but as
                                 expected, was sensitive
-                                to data density. Its performance degraded slightly in non-equidistant regions where
+                                to data density. Its performance degraded slightly in non equidistant regions where
                                 fewer neighbors were
                                 available.</span></p>
                         <p class="c11"><span class="c2">Random Forest showed strong performance across both designs,
                                 with relatively low
-                                variance and bias. This is due to averaging across many de-correlated trees, which
+                                variance and bias. This is due to averaging across many de correlated trees, which
                                 stabilizes
                                 predictions.</span></p>
                         <p class="c11"><span class="c2">Boosting achieved high accuracy in dense regions but showed
                                 noticeable spikes in
-                                bias and MSE in sparse areas, especially in the non-equidistant design. This suggests
+                                bias and MSE in sparse areas, especially in the non equidistant design. This suggests
                                 that sequential
                                 learning can overcorrect noise when data is unevenly distributed.</span></p>
                         <p class="c11"><span class="c2">In terms of overall predictive accuracy, Random Forest and
                                 Smoothing Splines offered
                                 the most consistent balance between bias and variance, while Boosting demonstrated high
                                 flexibility but was
-                                more sensitive to tuning and instability in data-sparse regions. KNN Regression remained
+                                more sensitive to tuning and instability in data sparse regions. KNN Regression remained
                                 intuitive and
                                 competitive but was dependent on local data availability and the choice of K.</span></p>
                         <p class="c11"><span class="c3">This simulation confirms the theoretical relationship
@@ -366,7 +366,7 @@
                                 model universally
                                 dominates; rather, model selection should depend on data structure, smoothness of the
                                 underlying function,
-                                and the trade-off between interpretability and predictive stability.</span></p>
+                                and the trade off between interpretability and predictive stability.</span></p>
                         <p class="c11 c92"><span class="c3 c45 c8 c15"></span></p>
                         <p class="c11 c92"><span class="c2"></span></p>
                         <p class="c9"><span class="c2"></span></p>
