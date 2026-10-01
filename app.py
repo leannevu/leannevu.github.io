@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from flask import Flask, abort, redirect, send_from_directory, url_for
+from flask import Flask, abort, redirect, request, send_from_directory, url_for
 
 from projects.routes.analysis_productivity_routes import analysis_bp
 from projects.routes.model_behavior_routes import model_behavior_bp
@@ -20,6 +20,15 @@ app = Flask(
     template_folder=str(PROJECTS_DIR / "templates"),
 )
 app.secret_key = os.environ.get("STUDY_DASHBOARD_SECRET_KEY", "dev-only-change-me")
+
+
+@app.before_request
+def redirect_bare_domain_to_homepage():
+    # Requests arriving on the bare domain should always land on the canonical
+    # www homepage, including requests for old or deep-linked routes.
+    host = request.host.lower().split(":", 1)[0]
+    if host == "leannevu.com":
+        return redirect("https://www.leannevu.com/", code=301)
 
 app.register_blueprint(optimization_bp, url_prefix="/projects/optimization")
 app.register_blueprint(analysis_bp, url_prefix="/projects/analysis-productivity")

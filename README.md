@@ -1,7 +1,7 @@
 # Leanne Vu portfolio
 
 This repository contains the complete site deployed to Railway and served at
-`https://leannevu.com`.
+`https://www.leannevu.com` (with the bare domain redirected to the homepage).
 
 ## Structure
 
